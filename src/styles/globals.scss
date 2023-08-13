@@ -1,0 +1,36 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap");
+
+@font-face {
+    font-family: "G Market Sans";
+    src: url("../fonts/GmarketSansTTFBold.woff") format("woff");
+    font-weight: bold;
+}
+@font-face {
+    font-family: "G Market Sans";
+    src: url("../fonts/GmarketSansTTFLight.woff") format("woff");
+    font-weight: lighter;
+}
+@font-face {
+    font-family: "G Market Sans";
+    src: url("../fonts/GmarketSansTTFMedium.woff") format("woff");
+    font-weight: normal;
+}
+
+* {
+    margin: 0;
+    border: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-family: "Noto Sans KR", sans-serif;
+}
+
+li {
+    list-style: none;
+}
+
+.page {
+    width: 80%;
+    max-width: 1200px;
+    margin: 0px auto;
+}

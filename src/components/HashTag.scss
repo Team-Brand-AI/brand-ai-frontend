@@ -1,0 +1,47 @@
+@import "@styles/utils.scss";
+
+$hash-tag-item-height: 80px;
+
+.hash-tag-container {
+    width: 100%;
+
+    padding: 20px 0px;
+}
+
+.hash-tag-item {
+    position: relative;
+
+    display: inline-block;
+
+    width: auto;
+    height: $hash-tag-item-height;
+
+    margin: 10px;
+    padding: 0px 30px;
+    border-radius: 50px;
+
+    vertical-align: baseline;
+
+    background-color: $color-gray-300;
+
+    .hash-tag-item__text {
+        line-height: $hash-tag-item-height;
+        display: inline;
+    }
+    .hash-tag-item__btn {
+        @include place-center;
+
+        position: absolute;
+        top: -5px;
+        right: -5px;
+
+        width: 30px;
+        height: 30px;
+
+        border-radius: 50%;
+
+        background-color: $color-red;
+
+        font-weight: bold;
+    }
+}

@@ -1,0 +1,17 @@
+@import "@styles/utils.scss";
+
+.form-label {
+    font-size: 1.3rem;
+    font-weight: normal;
+}
+
+.form-label__inner {
+    display: block;
+    @include set-width;
+
+    margin: 10px auto;
+    padding-top: 20px;
+
+    font-size: 1.3rem;
+    font-weight: bold;
+}

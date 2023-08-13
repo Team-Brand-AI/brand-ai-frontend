@@ -1,0 +1,33 @@
+@import "@styles/utils.scss";
+
+$option-height: 60px;
+$option-border-radius: 20px;
+
+.option-container {
+    @include set-width;
+
+    margin: 0px auto;
+
+    font-size: 1.3rem;
+}
+
+.option-item {
+    @include place-center;
+
+    width: 100%;
+    height: $option-height;
+
+    margin: 10px 0px;
+    border: 2px solid $color-gray-200;
+    border-radius: $option-border-radius;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.option-item__active {
+    border: 3px solid $color-primary;
+
+    color: $color-primary;
+}

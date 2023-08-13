@@ -1,0 +1,67 @@
+@import "@styles/utils.scss";
+
+.home-page {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+
+    .home-page-bg__img {
+        width: 100%;
+        height: 100%;
+
+        object-fit: cover;
+    }
+    .home-page-bg__filter {
+        position: absolute;
+        top: 0;
+
+        width: 100%;
+        height: 100%;
+
+        opacity: 0.2;
+        background-color: $color-black;
+
+        transition: opacity 1s ease-in-out;
+    }
+    .home-page-container {
+        position: absolute;
+        top: 0;
+
+        width: 100%;
+        height: 100%;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+
+        .home-page-container__text {
+            color: $color-white;
+            text-align: center;
+
+            .home-page-container__title {
+                font-size: 4rem;
+            }
+            .home-page-container__subtitle {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+
+                font-size: 1.5rem;
+                font-weight: normal;
+            }
+        }
+
+        .home-page-container__btn {
+            margin: 0px auto;
+        }
+    }
+}
+
+@media screen and (max-width: 1023px) {
+    .home-page-container__title {
+        font-size: 3rem !important;
+    }
+    .home-page-container__subtitle {
+        font-size: 1.2rem !important;
+    }
+}

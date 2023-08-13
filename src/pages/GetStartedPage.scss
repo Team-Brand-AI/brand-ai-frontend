@@ -1,0 +1,49 @@
+@import "@styles/utils.scss";
+
+.page-get-started__terms-of-use {
+    .terms-of-use__container {
+        display: block;
+
+        margin: 50px 0px;
+        padding: 20px;
+        border-radius: 10px;
+
+        background-color: $color-gray-300;
+
+        .terms-of-use__text {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+    .terms-of-use-checkbox__container {
+        display: flex;
+        justify-content: center;
+
+        .terms-of-use-checkbox__btn {
+            @include place-center;
+
+            width: 60px;
+            height: 60px;
+
+            border-radius: 50%;
+
+            background-color: $color-gray-300;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+        .terms-of-use-checkbox__btn__active {
+            color: $color-white;
+            background-color: $color-primary;
+        }
+        .terms-of-use-checkbox__text {
+            @include place-center;
+            height: 60px;
+
+            margin: 0px 50px;
+
+            font-size: 1.2rem;
+        }
+    }
+}

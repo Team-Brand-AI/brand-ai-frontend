@@ -1,0 +1,77 @@
+[
+    {
+        "name_kr": "식품",
+        "name_en": "food",
+        "imgSrc": "icon_food"
+    },
+    {
+        "name_kr": "건강 의료용품",
+        "name_en": "healthcare",
+        "imgSrc": "icon_medic"
+    },
+    {
+        "name_kr": "친환경 인증",
+        "name_en": "eco",
+        "imgSrc": "icon_eco"
+    },
+    {
+        "name_kr": "화장품 미용",
+        "name_en": "cosmetics",
+        "imgSrc": "icon_cosmetics"
+    },
+    {
+        "name_kr": "생활 용품",
+        "name_en": "living",
+        "imgSrc": "icon_house"
+    },
+    {
+        "name_kr": "주방 용품",
+        "name_en": "kitchen",
+        "imgSrc": "icon_kitchen"
+    },
+    {
+        "name_kr": "반려동물 용품",
+        "name_en": "pets",
+        "imgSrc": "icon_pet"
+    },
+    {
+        "name_kr": "출산 유아동",
+        "name_en": "baby",
+        "imgSrc": "icon_baby"
+    },
+    {
+        "name_kr": "패션 의류",
+        "name_en": "clothes",
+        "imgSrc": "icon_cloth"
+    },
+    {
+        "name_kr": "스포츠 레저",
+        "name_en": "sports",
+        "imgSrc": "icon_sport"
+    },
+    {
+        "name_kr": "문구",
+        "name_en": "stationary",
+        "imgSrc": "icon_pencil"
+    },
+    {
+        "name_kr": "공구",
+        "name_en": "tools",
+        "imgSrc": "icon_tools"
+    },
+    {
+        "name_kr": "가전 디지털",
+        "name_en": "digital",
+        "imgSrc": "icon_digital"
+    },
+    {
+        "name_kr": "악기",
+        "name_en": "instrument",
+        "imgSrc": "icon_music"
+    },
+    {
+        "name_kr": "자동차",
+        "name_en": "car",
+        "imgSrc": "icon_car"
+    }
+]

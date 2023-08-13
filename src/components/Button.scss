@@ -1,0 +1,68 @@
+@import "@styles/utils.scss";
+
+$btn-width: 100%;
+$btn-height: 60px;
+$btn-border-radius: 20px;
+
+.btn-container {
+    width: $btn-width;
+    height: $btn-height;
+
+    display: block;
+
+    border: none;
+    border-radius: $btn-border-radius;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.btn-type__primary {
+    color: $color-white;
+    background-color: $color-primary;
+}
+
+.btn-type__secondary {
+    color: $color-gray;
+    background-color: $color-secondary;
+}
+
+.btn-type__rounded {
+    border-radius: 50px;
+    color: $color-white;
+    background-color: $color-primary;
+
+    font-weight: bold;
+}
+
+.btn-placeholder-container {
+    @include set-width;
+    aspect-ratio: 16/9;
+
+    @include place-center;
+    flex-direction: column;
+
+    margin: 20px auto;
+    border: 2px dashed $color-gray-100;
+    border-radius: $btn-border-radius;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    .btn-placeholder-container__icon {
+        margin: 0px auto;
+
+        color: $color-primary;
+        font-size: 2rem;
+    }
+    .btn-placeholder-container__text {
+        margin: 10px auto;
+
+        color: $color-primary;
+        text-align: center;
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+}

@@ -1,0 +1,59 @@
+@import "@/styles/utils.scss";
+
+$grid-item-border-radius: 10px;
+$grid-item-font-size: 1.1rem;
+
+.grid-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    margin: 0px auto;
+}
+
+.grid-item {
+    @include place-center;
+
+    margin: 10px;
+    border: 1px solid $color-gray-200;
+    border-radius: $grid-item-border-radius;
+
+    background-color: $color-white;
+
+    &:hover {
+        cursor: pointer;
+    }
+    .grid-item__container {
+        display: block;
+    }
+    .grid-item__icon {
+        object-fit: contain;
+        display: block;
+
+        width: 30px;
+        height: 30px;
+
+        margin: 5px auto;
+        border: 0;
+
+        filter: brightness(0);
+    }
+    .grid-item__text {
+        margin: 10px 0px;
+
+        text-align: center;
+        font-size: $grid-item-font-size;
+        font-weight: bold;
+    }
+}
+
+.grid-item__active {
+    border: 1px solid $color-primary;
+
+    color: $color-white;
+    background-color: $color-primary-100;
+
+    img {
+        filter: brightness(0) invert(100%) !important;
+    }
+}

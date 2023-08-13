@@ -1,0 +1,80 @@
+{
+    "food": [
+        {
+            "name_kr": "과일",
+            "name_en": "fruit"
+        },
+        {
+            "name_kr": "채소",
+            "name_en": "vegetable"
+        },
+        {
+            "name_kr": "축산물",
+            "name_en": "livestock"
+        },
+        {
+            "name_kr": "수산물 건어물",
+            "name_en": ""
+        },
+        {
+            "name_kr": "쌀 잡곡",
+            "name_en": ""
+        },
+        {
+            "name_kr": "견과류 건과류",
+            "name_en": ""
+        },
+        {
+            "name_kr": "다이어트 이너뷰티",
+            "name_en": ""
+        },
+        {
+            "name_kr": "생수 음료",
+            "name_en": ""
+        },
+        {
+            "name_kr": "커피 차류",
+            "name_en": ""
+        },
+        {
+            "name_kr": "면 통조림",
+            "name_en": ""
+        },
+        {
+            "name_kr": "밀키트",
+            "name_en": ""
+        },
+        {
+            "name_kr": "간편조리식품",
+            "name_en": ""
+        },
+        {
+            "name_kr": "치즈 유가공품",
+            "name_en": ""
+        },
+        {
+            "name_kr": "과자 떡 베이커리",
+            "name_en": ""
+        },
+        {
+            "name_kr": "장류 조미료",
+            "name_en": ""
+        },
+        {
+            "name_kr": "오일 가루 향신료",
+            "name_en": ""
+        },
+        {
+            "name_kr": "소스 잼 시럽",
+            "name_en": ""
+        },
+        {
+            "name_kr": "김치 반찬",
+            "name_en": ""
+        },
+        {
+            "name_kr": "주류",
+            "name_en": ""
+        }
+    ]
+}
