@@ -7,6 +7,7 @@ import { Options } from "../components/Options";
 import { NavBar } from "../components/NavBar";
 import { Heading } from "../components/Heading";
 import { Selector } from "../components/Selector";
+import { ButtonGroup } from "../components/Button";
 import { AgeContext } from "../context/AgeContext";
 import { GenderContext } from "../context/GenderContext";
 import { Button } from "../components/Button";
@@ -53,6 +54,8 @@ export const GetStartedPage = {
                     </div>
                     <div className="terms-of-use-checkbox__text">개인정보 수집 이용에 동의합니다</div>
                 </div>
+
+                <ButtonGroup prevPath={"/"} nextPath={"/get-started/personal-info"}></ButtonGroup>
             </main>
         );
     },
@@ -89,6 +92,8 @@ export const GetStartedPage = {
                         <Options.Item>80대</Options.Item>
                     </Options.Container>
                 </AgeContext.Provider>
+
+                <ButtonGroup prevPath={"/get-started/terms-of-use"} nextPath={"/my-marketing"}></ButtonGroup>
             </main>
         );
     },
