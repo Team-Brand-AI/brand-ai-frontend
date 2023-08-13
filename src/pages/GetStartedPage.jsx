@@ -95,7 +95,7 @@ export const GetStartedPage = {
 
     Login: () => {
         function SocialKakao() {
-            const REDIRECT_URI=`http://localhost:3001/get-started/terms-of-use`;
+            const REDIRECT_URI=`http://localhost:3000/get-started/terms-of-use`;
             const REST_API_KEY=`d57feeaf862b3d286ce2ca7c21039022`;
             
             //REST API 형식
