@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useContext, useEffect, useLayoutEffect, useRef, useState } from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
@@ -6,8 +6,8 @@ import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import "./Forms.scss";
 
 export const Input = {
-    Text: ({ placeholder }) => {
-        return <input type="text" placeholder={placeholder} className="input__text" />;
+    Text: ({ placeholder, id }) => {
+        return <input id={id} type="text" placeholder={placeholder} className="input__text" />;
     },
     TextArea: ({ placeholder }) => {
         return <textarea className="input__textarea" placeholder={placeholder}></textarea>;
@@ -15,12 +15,16 @@ export const Input = {
 };
 
 export const DropDown = {
-    Container: ({ children }) => {
+    Container: ({ context, children, name }) => {
         const dropdownItems = useRef();
         const dropdownContainer = useRef();
 
         const [isOpened, setIsOpened] = useState(false);
-        const [selected, setSelected] = useState({ index: null, text: null });
+        const { selectedItem, setSelectedItem } = useContext(context);
+
+        useEffect(() => {
+            console.log(selectedItem);
+        }, [selectedItem]);
 
         const onClickHandler = () => {
             setIsOpened((isOpened) => !isOpened);
@@ -45,11 +49,11 @@ export const DropDown = {
         }, [isOpened]);
 
         useEffect(() => {
-            const elements = document.querySelectorAll(".dropdown-item");
+            const elements = document.querySelectorAll(`.dropdown-item__${name}`);
 
             for (let index = 0; index < elements.length; index++) {
                 elements[index].addEventListener("click", () => {
-                    setSelected({ index: index, text: elements[index].innerHTML });
+                    setSelectedItem({ index: index, text: elements[index].innerHTML });
                     setIsOpened(false);
                 });
             }
@@ -58,7 +62,7 @@ export const DropDown = {
         return (
             <div className="dropdown-wrapper">
                 <div className="dropdown-container" ref={dropdownContainer}>
-                    <div className="dropdown-text">{selected.text}</div>
+                    <div className="dropdown-text">{selectedItem && selectedItem.text}</div>
                     <div className="dropdown-ui">
                         <FontAwesomeIcon icon={faChevronDown} />
                     </div>
@@ -70,7 +74,7 @@ export const DropDown = {
             </div>
         );
     },
-    Item: ({ children }) => {
-        return <div className="dropdown-item">{children}</div>;
+    Item: ({ children, name }) => {
+        return <div className={`dropdown-item dropdown-item__${name}`}>{children}</div>;
     },
 };

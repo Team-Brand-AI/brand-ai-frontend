@@ -6,11 +6,11 @@ export const HashTag = {
     Container: ({ children }) => {
         return <div className="hash-tag-container">{children}</div>;
     },
-    Item: ({ children }) => {
+    Item: ({ children, onRemoveBtnClick }) => {
         return (
             <div className="hash-tag-item">
                 <div className="hash-tag-item__text">{children}</div>
-                <div className="hash-tag-item__btn">
+                <div className="hash-tag-item__btn" onClick={onRemoveBtnClick}>
                     <FontAwesomeIcon icon={faMinus} />
                 </div>
             </div>

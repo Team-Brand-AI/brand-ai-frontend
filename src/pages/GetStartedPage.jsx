@@ -2,6 +2,8 @@ import { useContext, useEffect, useLayoutEffect, useRef, useState } from "react"
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+import { useDispatch, useSelector } from "react-redux";
+
 import { Label } from "../components/Label";
 import { Options } from "../components/Options";
 import { NavBar } from "../components/NavBar";
@@ -10,10 +12,15 @@ import { Selector } from "../components/Selector";
 import { AgeContext } from "../context/AgeContext";
 import { GenderContext } from "../context/GenderContext";
 
+import { getStartedActions } from "../store/get-started-slice";
+
 import "./GetStartedPage.scss";
 
 export const GetStartedPage = {
     TermsOfUse: () => {
+        const { termsOfUse } = useSelector((state) => state.getStarted);
+        const dispatch = useDispatch();
+
         const toggleRef = useRef();
         const [toggle, setToggle] = useState(false);
 
@@ -25,6 +32,11 @@ export const GetStartedPage = {
             toggleRef.current.addEventListener("click", onToggleClickHandler);
             return () => toggleRef.current.removeEventListener("click", onToggleClickHandler);
         }, []);
+
+        useEffect(() => {
+            if (toggle) dispatch(getStartedActions.agreeTermsOfUse({ toggle: true }));
+            else dispatch(getStartedActions.agreeTermsOfUse({ toggle: false }));
+        }, [toggle]);
 
         return (
             <main className="page-get-started__terms-of-use page">
@@ -57,8 +69,21 @@ export const GetStartedPage = {
     },
 
     PersonalInfo: () => {
+        const { gender } = useSelector((state) => state.getStarted);
+        const dispatch = useDispatch();
+
         const [selectedGender, setSelectedGender] = useState(0);
         const [selectedAge, setSelectedAge] = useState(0);
+
+        useEffect(() => {
+            if (selectedGender === 0) dispatch(getStartedActions.setGenderMan());
+            if (selectedGender === 1) dispatch(getStartedActions.setGenderWoman());
+        }, [selectedGender]);
+
+        useEffect(() => {
+            let age = (selectedAge + 2) * 10;
+            dispatch(getStartedActions.setAge({ age: age }));
+        }, [selectedAge]);
 
         return (
             <main className="page-get-started__age page">
