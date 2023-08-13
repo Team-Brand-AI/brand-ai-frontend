@@ -7,6 +7,7 @@ import { GetStartedPage } from "./pages/GetStartedPage";
 import { MyMarketingPage } from "./pages/MyMarketingPage";
 import { DetailPage } from "./pages/DetailPage";
 import { SettingsPage } from "./pages/SettingsPage";
+import { ResultPage }from "./pages/ResultPage";
 
 function App() {
     return (
@@ -28,6 +29,8 @@ function App() {
                     <Route path="/new-marketing/brandinfo" element={<NewMarketingPage.BrandInfo />}></Route>
                     <Route path="/new-marketing/image" element={<NewMarketingPage.Image />}></Route>
                 </Route>
+
+                <Route path="/result/:id" element={<ResultPage />}></Route>
 
                 <Route path="/settings" element={<SettingsPage />}></Route>
             </Routes>
