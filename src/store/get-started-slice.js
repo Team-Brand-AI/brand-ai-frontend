@@ -6,11 +6,12 @@ export const getStartedSlice = createSlice({
     initialState: {
         termsOfUse: false,
         gender: null,
+        age: 0,
     },
 
     reducers: {
         agreeTermsOfUse: (state, action) => {
-            state.termsOfUse = true;
+            state.termsOfUse = action.payload.toggle;
         },
 
         setGenderMan: (state, action) => {
@@ -19,6 +20,10 @@ export const getStartedSlice = createSlice({
 
         setGenderWoman: (state, action) => {
             state.gender = "woman";
+        },
+
+        setAge: (state, action) => {
+            state.age = action.payload.age;
         },
     },
 });
