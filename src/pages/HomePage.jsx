@@ -29,7 +29,7 @@ export const HomePage = () => {
                     </h3>
                 </div>
                 <div className="home-page-container__btn">
-                    <Button type="rounded" width="180px" onClick={() => navigate("/get-started/terms-of-use")}>
+                    <Button type="rounded" width="180px" onClick={() => navigate("get-started/Login")}>
                         시작하기
                     </Button>
                 </div>

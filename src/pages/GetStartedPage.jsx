@@ -9,6 +9,7 @@ import { Heading } from "../components/Heading";
 import { Selector } from "../components/Selector";
 import { AgeContext } from "../context/AgeContext";
 import { GenderContext } from "../context/GenderContext";
+import { Button } from "../components/Button";
 
 import "./GetStartedPage.scss";
 
