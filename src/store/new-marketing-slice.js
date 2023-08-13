@@ -4,12 +4,16 @@ export const newMarketingSlice = createSlice({
     name: "new-marketing",
 
     initialState: {
-        category_index: null,
-        category_kr: null,
-        category_en: null,
+        category: {
+            index: null,
+            kr: null,
+            en: null,
+        },
 
-        subcategory_kr: null,
-        subcategory_en: null,
+        subcategory: {
+            kr: null,
+            en: null,
+        },
 
         hashtags: [],
 
@@ -28,14 +32,14 @@ export const newMarketingSlice = createSlice({
 
     reducers: {
         setCategory: (state, action) => {
-            state.category_index = action.payload.index;
-            state.category_kr = action.payload.kr;
-            state.category_en = action.payload.en;
+            state.category.index = action.payload.index;
+            state.category.kr = action.payload.kr;
+            state.category.en = action.payload.en;
         },
 
         setSubCategory: (state, action) => {
-            state.subcategory_kr = action.payload.kr;
-            state.subcategory_en = action.payload.en;
+            state.subcategory.kr = action.payload.kr;
+            state.subcategory.en = action.payload.en;
         },
 
         appendHashTag: (state, action) => {
@@ -43,11 +47,11 @@ export const newMarketingSlice = createSlice({
         },
 
         setBrandName: (state, action) => {
-            state.brandName = action.payload;
+            state.brand.name = action.payload;
         },
 
         setBrandInfo: (state, action) => {
-            state.brandInfo = action.payload;
+            state.brand.info = action.payload;
         },
 
         setMoodOption: (state, action) => {

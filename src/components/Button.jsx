@@ -20,14 +20,28 @@ export const Button = ({ styles, width, height, type, ref, className, onClick, c
     );
 };
 
-export const ButtonGroup = ({ prevPath, nextPath }) => {
+export const ButtonGroup = ({ prevPath, nextPath, onPrevClick, onNextClick }) => {
     const navigate = useNavigate();
     return (
         <div className="btn-group-container">
-            <Button type="secondary" width="50%" onClick={() => navigate(prevPath)}>
+            <Button
+                type="secondary"
+                width="50%"
+                onClick={() => {
+                    onPrevClick && onPrevClick();
+                    navigate(prevPath);
+                }}
+            >
                 이전
             </Button>
-            <Button type="primary" width="50%" onClick={() => navigate(nextPath)}>
+            <Button
+                type="primary"
+                width="50%"
+                onClick={() => {
+                    onNextClick && onNextClick();
+                    navigate(nextPath);
+                }}
+            >
                 다음
             </Button>
         </div>

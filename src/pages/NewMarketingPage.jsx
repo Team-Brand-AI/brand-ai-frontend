@@ -9,7 +9,6 @@ import { Input, DropDown } from "../components/Forms";
 import { HashTag } from "../components/HashTag";
 import { Button, ButtonGroup, ButtonPlaceHolder } from "../components/Button";
 
-
 import { faCloudArrowUp } from "@fortawesome/free-solid-svg-icons";
 
 import category from "@assets/category.json";
@@ -23,7 +22,6 @@ import { newMarketingActions } from "../store/new-marketing-slice.js";
 export const NewMarketingPage = {
     Category: () => {
         const dispatch = useDispatch();
-
         const [selectedCategory, setSelectedCategory] = useState(null);
 
         useEffect(() => {
@@ -66,16 +64,16 @@ export const NewMarketingPage = {
         );
     },
     SubCategory: () => {
-        const { category_en } = useSelector((state) => state.newMarketing);
+        const { category } = useSelector((state) => state.newMarketing);
         const dispatch = useDispatch();
         const [selectedSubCategory, setSelectedSubCategory] = useState(null);
 
         useEffect(() => {
-            if (selectedSubCategory != undefined) {
+            if (selectedSubCategory) {
                 dispatch(
                     newMarketingActions.setSubCategory({
-                        kr: subcategory[category_en][selectedSubCategory]["name_kr"],
-                        en: subcategory[category_en][selectedSubCategory]["name_en"],
+                        kr: subcategory[category.en][selectedSubCategory]["name_kr"],
+                        en: subcategory[category.en][selectedSubCategory]["name_en"],
                     })
                 );
             }
@@ -144,8 +142,8 @@ export const NewMarketingPage = {
         });
 
         const onNextBtnClick = () => {
-            dispatch(newMarketingActions.setBrandName(document.querySelector("#brandNameInput")));
-            dispatch(newMarketingActions.setBrandInfo(document.querySelector("#brandInfoInput")));
+            dispatch(newMarketingActions.setBrandName(document.querySelector("#brandNameInput").value));
+            dispatch(newMarketingActions.setBrandInfo(document.querySelector("#brandInfoInput").value));
         };
 
         useEffect(() => {
@@ -178,36 +176,26 @@ export const NewMarketingPage = {
                 <Label>무드</Label>
 
                 <MoodContext.Provider value={{ selectedItem: selectedMoodOption, setSelectedItem: setSelectedMoodOption }}>
-                    <DropDown.Container name="color" context={MoodContext}>
-                        <DropDown.Item name="color">다채롭게</DropDown.Item>
-                        <DropDown.Item name="color">보통</DropDown.Item>
-                        <DropDown.Item name="color">단조롭게</DropDown.Item>
+                    <DropDown.Container name="mood" context={MoodContext}>
+                        <DropDown.Item name="mood">다채롭게</DropDown.Item>
+                        <DropDown.Item name="mood">보통</DropDown.Item>
+                        <DropDown.Item name="mood">단조롭게</DropDown.Item>
                     </DropDown.Container>
                 </MoodContext.Provider>
 
                 <Label>컬러</Label>
 
                 <ColorContext.Provider value={{ selectedItem: selectedColorOption, setSelectedItem: setSelectedColorOption }}>
-                    <DropDown.Container context={ColorContext}>
-                        <DropDown.Item>진하게</DropDown.Item>
-                        <DropDown.Item>보통</DropDown.Item>
-                        <DropDown.Item>연하게</DropDown.Item>
+                    <DropDown.Container name="color" context={ColorContext}>
+                        <DropDown.Item name="color">진하게</DropDown.Item>
+                        <DropDown.Item name="color">보통</DropDown.Item>
+                        <DropDown.Item name="color">연하게</DropDown.Item>
                     </DropDown.Container>
                 </ColorContext.Provider>
 
-                <Input.TextArea placeholder="예) placeholder"></Input.TextArea>
+                <div style={{ height: "300px" }}></div>
 
-                {/* Context API 필요 */}
-                <Label>옵션 1</Label>
-                <DropDown.Container>
-                    <DropDown.Item>DropDown Item 1</DropDown.Item>
-                    <DropDown.Item>DropDown Item 2</DropDown.Item>
-                    <DropDown.Item>DropDown Item 3</DropDown.Item>
-                    <DropDown.Item>DropDown Item 4</DropDown.Item>
-                </DropDown.Container>
-
-                <ButtonGroup prevPath={"/new-marketing/hashtag"} nextPath={"/new-marketing/image"}></ButtonGroup>
-
+                <ButtonGroup prevPath={"/new-marketing/hashtag"} nextPath={"/new-marketing/image"} onNextClick={() => onNextBtnClick()}></ButtonGroup>
             </div>
         );
     },
