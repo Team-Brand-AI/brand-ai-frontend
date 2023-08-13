@@ -9,6 +9,7 @@ import { Heading } from "../components/Heading";
 import { Selector } from "../components/Selector";
 import { AgeContext } from "../context/AgeContext";
 import { GenderContext } from "../context/GenderContext";
+import { Button } from "../components/Button";
 
 import "./GetStartedPage.scss";
 
@@ -91,4 +92,29 @@ export const GetStartedPage = {
             </main>
         );
     },
+
+    Login: () => {
+        function SocialKakao() {
+            const REDIRECT_URI=`http://localhost:3000/get-started/terms-of-use`;
+            const REST_API_KEY=`d57feeaf862b3d286ce2ca7c21039022`;
+            
+            //REST API 형식
+            const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}`;
+            window.location.href = KAKAO_AUTH_URL;
+        }
+
+        return(
+            <main className="page-get-started__login_back">
+                <Heading
+                    title={"Marketisy를 사용하기 위해 로그인해주세요!"}
+                    subtitle={["로그인 해두면 카카오톡으로 내 상품을 빠르게 공유할 수 있어요."]}
+                />
+                <div className="login-page-container">
+                    <div className="login-page-container__btn">
+                        <Button type="primary" onClick={()=>SocialKakao()}>카카오톡 로그인하기</Button>
+                    </div>
+                </div>
+            </main>
+        )
+    }
 };
