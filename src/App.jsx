@@ -8,9 +8,12 @@ import { MyMarketingPage } from "./pages/MyMarketingPage";
 import { DetailPage } from "./pages/DetailPage";
 import { SettingsPage } from "./pages/SettingsPage";
 
+import { Provider } from "react-redux";
+import { store } from "./store/store";
+
 function App() {
     return (
-        <>
+        <Provider store={store}>
             <Routes>
                 <Route path="/" element={<HomePage />}></Route>
 
@@ -30,7 +33,7 @@ function App() {
 
                 <Route path="/settings" element={<SettingsPage />}></Route>
             </Routes>
-        </>
+        </Provider>
     );
 }
 
