@@ -17,6 +17,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<HomePage />}></Route>
 
+                <Route path="/get-started/login" element={<GetStartedPage.Login />}></Route>
                 <Route path="/get-started/terms-of-use" element={<GetStartedPage.TermsOfUse />}></Route>
                 <Route path="/get-started/personal-info" element={<GetStartedPage.PersonalInfo />}></Route>
 

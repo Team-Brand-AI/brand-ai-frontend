@@ -7,7 +7,8 @@ import { Grid } from "../components/Grid";
 import { Label } from "../components/Label";
 import { Input, DropDown } from "../components/Forms";
 import { HashTag } from "../components/HashTag";
-import { Button, ButtonPlaceHolder } from "../components/Button";
+import { Button, ButtonGroup, ButtonPlaceHolder } from "../components/Button";
+
 
 import { faCloudArrowUp } from "@fortawesome/free-solid-svg-icons";
 
@@ -59,6 +60,8 @@ export const NewMarketingPage = {
                         </Grid.Container>
                     </CategoryContext.Provider>
                 </div>
+
+                <ButtonGroup prevPath={"/"} nextPath={"/new-marketing/subcategory"}></ButtonGroup>
             </main>
         );
     },
@@ -79,7 +82,7 @@ export const NewMarketingPage = {
         }, [selectedSubCategory]);
 
         return (
-            <div className="new-marketing-page__subcategory page">
+            <main className="new-marketing-page__subcategory page">
                 <NavBar.Top cur={1} max={5} />
                 <Heading title={"하위 카테고리를 선택해 주세요"} subtitle={["판매 하시려는 상품과 관련된 카테고리를", "선택해 주세요"]} />
 
@@ -90,7 +93,9 @@ export const NewMarketingPage = {
                         })}
                     </Grid.Container>
                 </SubCategoryContext.Provider>
-            </div>
+
+                <ButtonGroup prevPath={"/new-marketing/category"} nextPath={"/new-marketing/hashtag"}></ButtonGroup>
+            </main>
         );
     },
     HashTag: () => {
@@ -98,7 +103,7 @@ export const NewMarketingPage = {
         const { hashtags } = useSelector((state) => state.newMarketing);
 
         return (
-            <div className="new-marketing-page__hashtag page">
+            <main className="new-marketing-page__hashtag page">
                 <NavBar.Top cur={2} max={5} />
                 <Heading title={"해쉬태그를 추가해 주세요"} subtitle={["판매 하시려는 상품을 가장 잘 나타내주는", "해쉬태그를 추가해주세요"]} />
 
@@ -122,7 +127,9 @@ export const NewMarketingPage = {
                         return <HashTag.Item key={index}>{element}</HashTag.Item>;
                     })}
                 </HashTag.Container>
-            </div>
+
+                <ButtonGroup prevPath={"/new-marketing/subcategory"} nextPath={"/new-marketing/brandinfo"}></ButtonGroup>
+            </main>
         );
     },
     BrandInfo: () => {
@@ -165,6 +172,7 @@ export const NewMarketingPage = {
                     <span>상품에 대한 간단한 설명을 입력해 주세요</span>
                     <span>(100 자 이내)</span>
                 </Label>
+
                 <Input.TextArea id="brandInfoInput" placeholder="예) placeholder"></Input.TextArea>
 
                 <Label>무드</Label>
@@ -186,6 +194,20 @@ export const NewMarketingPage = {
                         <DropDown.Item>연하게</DropDown.Item>
                     </DropDown.Container>
                 </ColorContext.Provider>
+
+                <Input.TextArea placeholder="예) placeholder"></Input.TextArea>
+
+                {/* Context API 필요 */}
+                <Label>옵션 1</Label>
+                <DropDown.Container>
+                    <DropDown.Item>DropDown Item 1</DropDown.Item>
+                    <DropDown.Item>DropDown Item 2</DropDown.Item>
+                    <DropDown.Item>DropDown Item 3</DropDown.Item>
+                    <DropDown.Item>DropDown Item 4</DropDown.Item>
+                </DropDown.Container>
+
+                <ButtonGroup prevPath={"/new-marketing/hashtag"} nextPath={"/new-marketing/image"}></ButtonGroup>
+
             </div>
         );
     },
@@ -203,6 +225,8 @@ export const NewMarketingPage = {
                     onClick={() => fileInput.current.click()}
                 ></ButtonPlaceHolder>
                 <input style={{ display: "none" }} ref={fileInput} type="file" className="input__image" accept="image/*" multiple />
+
+                <ButtonGroup prevPath={"/new-marketing/brandinfo"} nextPath={"/new-marketing/loading"}></ButtonGroup>
             </div>
         );
     },
