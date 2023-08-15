@@ -14,67 +14,873 @@
         },
         {
             "name_kr": "수산물 건어물",
-            "name_en": ""
+            "name_en": "seafood and dried seafood"
         },
         {
             "name_kr": "쌀 잡곡",
-            "name_en": ""
+            "name_en": "rice and grains"
         },
         {
             "name_kr": "견과류 건과류",
-            "name_en": ""
+            "name_en": "nuts and dried fruits"
         },
         {
             "name_kr": "다이어트 이너뷰티",
-            "name_en": ""
+            "name_en": "diet and inner beauty"
         },
         {
             "name_kr": "생수 음료",
-            "name_en": ""
-        },
-        {
-            "name_kr": "커피 차류",
-            "name_en": ""
-        },
-        {
-            "name_kr": "면 통조림",
-            "name_en": ""
+            "name_en": "mineral water and beverages"
         },
         {
             "name_kr": "밀키트",
-            "name_en": ""
+            "name_en": "meal kits"
         },
         {
             "name_kr": "간편조리식품",
-            "name_en": ""
+            "name_en": "convenience foods"
         },
         {
             "name_kr": "치즈 유가공품",
-            "name_en": ""
+            "name_en": "cheese and dairy products"
         },
         {
             "name_kr": "과자 떡 베이커리",
-            "name_en": ""
+            "name_en": "snacks, rice cakes, bakery"
         },
         {
             "name_kr": "장류 조미료",
-            "name_en": ""
+            "name_en": "sauces and seasonings"
         },
         {
             "name_kr": "오일 가루 향신료",
-            "name_en": ""
+            "name_en": "oils, flour, spices"
         },
         {
             "name_kr": "소스 잼 시럽",
-            "name_en": ""
+            "name_en": "sauces, jams, syrups"
         },
         {
             "name_kr": "김치 반찬",
-            "name_en": ""
+            "name_en": "kimchi and side dishes"
         },
         {
             "name_kr": "주류",
-            "name_en": ""
+            "name_en": "beverages, alcoholic drinks"
+        },
+        {
+            "name_kr": "커피 차류",
+            "name_en": "coffee and tea"
+        },
+        {
+            "name_kr": "면 통조림",
+            "name_en": "canned noodles"
+        },
+        {
+            "name_kr": "밀키트",
+            "name_en": "meal kits"
+        },
+        {
+            "name_kr": "간편조리식품",
+            "name_en": "convenience foods"
+        },
+        {
+            "name_kr": "치즈 유가공품",
+            "name_en": "cheese and dairy products"
+        },
+        {
+            "name_kr": "과자 떡 베이커리",
+            "name_en": "snacks, rice cakes, bakery"
+        },
+        {
+            "name_kr": "장류 조미료",
+            "name_en": "sauces and seasonings"
+        },
+        {
+            "name_kr": "오일 가루 향신료",
+            "name_en": "oils, flour, spices"
+        },
+        {
+            "name_kr": "소스 잼 시럽",
+            "name_en": "sauces, jams, syrups"
+        },
+        {
+            "name_kr": "김치 반찬",
+            "name_en": "kimchi and side dishes"
+        },
+        {
+            "name_kr": "주류",
+            "name_en": "beverages, alcoholic drinks"
+        }
+    ],
+
+    
+     "computer": [
+        {
+            "name_kr": "노트북",
+            "name_en": "laptop"
+        },
+        {
+            "name_kr": "데스크탑",
+            "name_en": "desktop"
+        },
+        {
+            "name_kr": "모니터",
+            "name_en": "monitor"
+        },
+        {
+            "name_kr": "복합기/프린터",
+            "name_en": "multifunction printer"
+        },
+        {
+            "name_kr": "키보드/마우스",
+            "name_en": "keyboard/mouse"
+        },
+        {
+            "name_kr": "주변기기",
+            "name_en": "peripheral devices"
+        },
+        {
+            "name_kr": "저장장치",
+            "name_en": "storage devices"
+        },
+        {
+            "name_kr": "소프트웨어",
+            "name_en": "software"
+        },
+        {
+            "name_kr": "부품",
+            "name_en": "components"
+        }
+    ],
+
+    "health medical device": [
+        {
+            "name_kr": "마스크",
+            "name_en": "mask"
+        },
+        {
+            "name_kr": "손소독제",
+            "name_en": "hand sanitizer"
+        },
+        {
+            "name_kr": "건강관리용품",
+            "name_en": "healthcare products"
+        },
+        {
+            "name_kr": "안마용품",
+            "name_en": "massage products"
+        },
+        {
+            "name_kr": "건강측정용품",
+            "name_en": "health measurement products"
+        },
+        {
+            "name_kr": "의료용품",
+            "name_en": "medical equipment"
+        },
+        {
+            "name_kr": "발건강용품",
+            "name_en": "foot care products"
+        },
+        {
+            "name_kr": "재활운동용품",
+            "name_en": "rehabilitation exercise equipment"
+        },
+        {
+            "name_kr": "족욕/좌훈용품",
+            "name_en": "foot bath/sitz bath products"
+        },
+        {
+            "name_kr": "실버용품",
+            "name_en": "silver products"
+        },
+        {
+            "name_kr": "냉온/찜질용품",
+            "name_en": "hot and cold therapy products"
+        },
+        {
+            "name_kr": "눈건강용품",
+            "name_en": "eye health products"
+        },
+        {
+            "name_kr": "당뇨관리용품",
+            "name_en": "diabetes management products"
+        },
+        {
+            "name_kr": "물리치료/저주파용품",
+            "name_en": "physical therapy/TENS products"
+        },
+        {
+            "name_kr": "건강액세사리",
+            "name_en": "health accessories"
+        }
+    ],
+
+    "eco-friendly certification": [
+        {
+            "name_kr": "그린푸드",
+            "name_en": "Green Food"
+        },
+        {
+            "name_kr": "그린뷰티",
+            "name_en": "Green Beauty"
+        },
+        {
+            "name_kr": "그린굿즈",
+            "name_en": "Green Goods"
+        },
+        {
+            "name_kr": "1등급가전",
+            "name_en": "Grade 1 Appliances"
+        }
+    ],
+
+    "cosmetics beauty":[
+        {
+            "name_kr": "스킨케어",
+            "name_en": "Skincare"
+        },
+        {
+            "name_kr": "바디케어",
+            "name_en": "Body Care"
+        },
+        {
+            "name_kr": "헤어케어",
+            "name_en": "Hair Care"
+        },
+        {
+            "name_kr": "향수",
+            "name_en": "Perfume"
+        },
+        {
+            "name_kr": "클렌징",
+            "name_en": "Cleansing"
+        },
+        {
+            "name_kr": "베이스메이크업",
+            "name_en": "Base Makeup"
+        },
+        {
+            "name_kr": "뷰티소품",
+            "name_en": "Beauty Accessories"
+        },
+        {
+            "name_kr": "색조메이크업",
+            "name_en": "Color Makeup"
+        },
+        {
+            "name_kr": "마스크 팩",
+            "name_en": "Face Mask Packs"
+        },
+        {
+            "name_kr": "선케어",
+            "name_en": "Sun Care"
+        },
+        {
+            "name_kr": "네일케어",
+            "name_en": "Nail Care"
+        }
+    ],
+
+    "life kitchen utensils": [
+        {
+            "name_kr": "주방용품",
+            "name_en": "Kitchenware"
+        },
+        {
+            "name_kr": "생활용품",
+            "name_en": "Everyday Items"
+        },
+        {
+            "name_kr": "욕실용품",
+            "name_en": "Bathroom Accessories"
+        },
+        {
+            "name_kr": "수납 정리용품",
+            "name_en": "Storage and Organization"
+        },
+        {
+            "name_kr": "청소용품",
+            "name_en": "Cleaning Supplies"
+        },
+        {
+            "name_kr": "구강위생용품",
+            "name_en": "Oral Hygiene Products"
+        },
+        {
+            "name_kr": "보안용품",
+            "name_en": "Security Items"
+        },
+        {
+            "name_kr": "세탁용품",
+            "name_en": "Laundry Supplies"
+        }
+    ],
+
+    "Pet Supplies": [
+        {
+            "name_kr": "강아지용품",
+            "name_en": "Dog Supplies"
+        },
+        {
+            "name_kr": "고양이용품",
+            "name_en": "Cat Supplies"
+        },
+        {
+            "name_kr": "기타반려동물용품",
+            "name_en": "Other Pet Supplies"
+        },
+        {
+            "name_kr": "햄스터용품",
+            "name_en": "Hamster Supplies"
+        },
+        {
+            "name_kr": "토끼용품",
+            "name_en": "Rabbit Supplies"
+        },
+        {
+            "name_kr": "고슴도치용품",
+            "name_en": "Hedgehog Supplies"
+        },
+        {
+            "name_kr": "파티 장례서비스",
+            "name_en": "Party and Funeral Services"
+        },
+        {
+            "name_kr": "관상어용품",
+            "name_en": "Arowana Fish Supplies"
+        }
+    ],
+
+    "maternity baby": [
+        {
+            "name_kr": "서머 키즈템",
+            "name_en": "Summer Kids' Items"
+        },
+        {
+            "name_kr": "분유",
+            "name_en": "Baby Formula"
+        },
+        {
+            "name_kr": "기저귀",
+            "name_en": "Diapers"
+        },
+        {
+            "name_kr": "물티슈",
+            "name_en": "Baby Wipes"
+        },
+        {
+            "name_kr": "이유식 유아간식",
+            "name_en": "Baby Food and Snacks"
+        },
+        {
+            "name_kr": "유아건강식품",
+            "name_en": "Baby Health Food"
+        },
+        {
+            "name_kr": "유모차 왜건",
+            "name_en": "Strollers and Carriages"
+        },
+        {
+            "name_kr": "카시트",
+            "name_en": "Car Seats"
+        },
+        {
+            "name_kr": "아기띠 외출용품",
+            "name_en": "Baby Carrier and Outdoor Gear"
+        },
+        {
+            "name_kr": "소독 살균용품",
+            "name_en": "Disinfection and Sterilization"
+        },
+        {
+            "name_kr": "목욕 스킨케어",
+            "name_en": "Bath and Skin Care"
+        },
+        {
+            "name_kr": "매트 안전용품",
+            "name_en": "Safety Mats and Equipment"
+        },
+        {
+            "name_kr": "위생 건강 세제",
+            "name_en": "Hygiene and Health Products"
+        },
+        {
+            "name_kr": "유아가구",
+            "name_en": "Baby Furniture"
+        },
+        {
+            "name_kr": "유아침구",
+            "name_en": "Baby Bedding"
+        },
+        {
+            "name_kr": "장난감",
+            "name_en": "Toys"
+        },
+        {
+            "name_kr": "학습교구",
+            "name_en": "Educational Toys"
+        },
+        {
+            "name_kr": "신생아의류",
+            "name_en": "Newborn Clothing"
+        },
+        {
+            "name_kr": "유아동의류",
+            "name_en": "Kids' Clothing"
+        },
+        {
+            "name_kr": "유아동언더웨어 잠옷",
+            "name_en": "Kids' Underwear and Sleepwear"
+        },
+        {
+            "name_kr": "신발 가방 잡화",
+            "name_en": "Shoes, Bags, Accessories"
+        },
+        {
+            "name_kr": "돌 백일준비",
+            "name_en": "First Birthday and 100th Day Celebration"
+        },
+        {
+            "name_kr": "유아동주얼리",
+            "name_en": "Kids' Jewelry"
+        },
+        {
+            "name_kr": "임신축하선물",
+            "name_en": "Maternity Celebration Gifts"
+        },
+        {
+            "name_kr": "출산기념품",
+            "name_en": "Baby Birth Commemoration"
+        },
+        {
+            "name_kr": "임부 태교용품",
+            "name_en": "Maternity Education Items"
+        }
+    ],
+
+    "fashion clothes": [
+        {
+            "name_kr": "아우터",
+            "name_en": "Outerwear"
+        },
+        {
+            "name_kr": "상의",
+            "name_en": "Top"
+        },
+        {
+            "name_kr": "하의",
+            "name_en": "Bottom"
+        },
+        {
+            "name_kr": "주얼리",
+            "name_en": "Jewelry"
+        },
+        {
+            "name_kr": "패션잡화",
+            "name_en": "Fashion Accessories"
+        },
+        {
+            "name_kr": "가방 지갑",
+            "name_en": "Bag Wallet"
+        }
+    ],
+
+    "sports leisure":[
+        {
+            "name_kr": "캠핑",
+            "name_en": "Camping"
+        },
+        {
+            "name_kr": "골프",
+            "name_en": "Golf"
+        },
+        {
+            "name_kr": "등산/아웃도어",
+            "name_en": "Hiking/Outdoor"
+        },
+        {
+            "name_kr": "축구",
+            "name_en": "Soccer"
+        },
+        {
+            "name_kr": "낚시",
+            "name_en": "Fishing"
+        },
+        {
+            "name_kr": "자전거",
+            "name_en": "Cycling"
+        },
+        {
+            "name_kr": "수영/수상레저",
+            "name_en": "Swimming/Water Leisure"
+        },
+        {
+            "name_kr": "전기자전거",
+            "name_en": "Electric Bicycle"
+        },
+        {
+            "name_kr": "오토바이/스쿠터",
+            "name_en": "Motorcycle/Scooter"
+        },
+        {
+            "name_kr": "퍼스널 모빌리티",
+            "name_en": "Personal Mobility"
+        },
+        {
+            "name_kr": "테니스",
+            "name_en": "Tennis"
+        },
+        {
+            "name_kr": "배드민턴",
+            "name_en": "Badminton"
+        },
+        {
+            "name_kr": "볼링",
+            "name_en": "Bowling"
+        },
+        {
+            "name_kr": "탁구",
+            "name_en": "Table Tennis"
+        },
+        {
+            "name_kr": "배구",
+            "name_en": "Volleyball"
+        },
+        {
+            "name_kr": "족구",
+            "name_en": "Foot Volleyball"
+        },
+        {
+            "name_kr": "농구",
+            "name_en": "Basketball"
+        },
+        {
+            "name_kr": "야구",
+            "name_en": "Baseball"
+        },
+        {
+            "name_kr": "스케이트/보드/롤러",
+            "name_en": "Skate/Board/Roller"
+        },
+        {
+            "name_kr": "스쿼시",
+            "name_en": "Squash"
+        },
+        {
+            "name_kr": "홈트레이닝",
+            "name_en": "Home Training"
+        },
+        {
+            "name_kr": "검도",
+            "name_en": "Kendo"
+        },
+        {
+            "name_kr": "권투",
+            "name_en": "Boxing"
+        },
+        {
+            "name_kr": "댄스",
+            "name_en": "Dance"
+        },
+        {
+            "name_kr": "당구용품",
+            "name_en": "Billiards Equipment"
+        },
+        {
+            "name_kr": "보호용품",
+            "name_en": "Protective Gear"
+        },
+        {
+            "name_kr": "무술용품",
+            "name_en": "Martial Arts Equipment"
+        },
+        {
+            "name_kr": "마라톤용품",
+            "name_en": "Marathon Equipment"
+        },
+        {
+            "name_kr": "수련용품",
+            "name_en": "Training Equipment"
+        },
+        {
+            "name_kr": "스포츠액세서리",
+            "name_en": "Sports Accessories"
+        },
+        {
+            "name_kr": "기타스포츠용품",
+            "name_en": "Other Sports Equipment"
+        },
+        {
+            "name_kr": "스키/보드",
+            "name_en": "Ski/Board"
+        }
+    ],
+
+    "hobby stationery instrument": [
+        {
+            "name_kr": "원예용품/식물",
+            "name_en": "Gardening Supplies/Plants"
+        },
+        {
+            "name_kr": "수집품",
+            "name_en": "Collectibles"
+        },
+        {
+            "name_kr": "문구/사무용품",
+            "name_en": "Stationery/Office Supplies"
+        },
+        {
+            "name_kr": "화방용품",
+            "name_en": "Art Supplies"
+        },
+        {
+            "name_kr": "종교",
+            "name_en": "Religion"
+        },
+        {
+            "name_kr": "음반",
+            "name_en": "Records"
+        },
+        {
+            "name_kr": "보드게임",
+            "name_en": "Board Games"
+        },
+        {
+            "name_kr": "마술도구/기타게임",
+            "name_en": "Magic Tools/Other Games"
+        },
+        {
+            "name_kr": "블루레이",
+            "name_en": "Blu-ray"
+        },
+        {
+            "name_kr": "DVD",
+            "name_en": "DVD"
+        },
+        {
+            "name_kr": "악기",
+            "name_en": "Musical Instruments"
+        }
+    ],
+
+    "home appliances digital": [
+        {
+            "name_kr": "태블릿PC",
+            "name_en": "Tablet PC"
+        },
+        {
+            "name_kr": "음향기기",
+            "name_en": "Audio Devices"
+        },
+        {
+            "name_kr": "블루투스",
+            "name_en": "Bluetooth"
+        },
+        {
+            "name_kr": "스마트워치",
+            "name_en": "Smartwatch"
+        },
+        {
+            "name_kr": "게이밍",
+            "name_en": "Gaming"
+        },
+        {
+            "name_kr": "휴대폰",
+            "name_en": "Mobile Phone"
+        },
+        {
+            "name_kr": "카메라",
+            "name_en": "Camera"
+        },
+        {
+            "name_kr": "1인방송/촬영",
+            "name_en": "Solo Broadcasting/Recording"
+        }
+    ],
+
+    "automotive tools": [
+        {
+            "name_kr": "블박/내비/전자기기",
+            "name_en": "Blackbox/Navigation/Electronic Devices"
+        },
+        {
+            "name_kr": "타이어/휠",
+            "name_en": "Tires/Wheels"
+        },
+        {
+            "name_kr": "오일/첨가제/필터",
+            "name_en": "Oil/Additives/Filters"
+        },
+        {
+            "name_kr": "세차/광택/탈취",
+            "name_en": "Car Wash/Polish/Deodorant"
+        },
+        {
+            "name_kr": "익스테리어용품",
+            "name_en": "Exterior Accessories"
+        },
+        {
+            "name_kr": "인테리어용품",
+            "name_en": "Interior Accessories"
+        },
+        {
+            "name_kr": "충전/거치/키용품",
+            "name_en": "Charging/Holder/Key Accessories"
+        },
+        {
+            "name_kr": "배터리/전기용품",
+            "name_en": "Battery/Electrical Items"
+        },
+        {
+            "name_kr": "튜닝/DIY용품",
+            "name_en": "Tuning/DIY Items"
+        },
+        {
+            "name_kr": "전동공구",
+            "name_en": "Power Tools"
+        },
+        {
+            "name_kr": "절삭/연마공구",
+            "name_en": "Cutting/Grinding Tools"
+        },
+        {
+            "name_kr": "목공공구",
+            "name_en": "Woodworking Tools"
+        },
+        {
+            "name_kr": "수작업공구",
+            "name_en": "Hand Tools"
+        },
+        {
+            "name_kr": "설비공구",
+            "name_en": "Facility Tools"
+        },
+        {
+            "name_kr": "소형기계",
+            "name_en": "Small Machinery"
+        },
+        {
+            "name_kr": "안전용품",
+            "name_en": "Safety Equipment"
+        },
+        {
+            "name_kr": "예초기",
+            "name_en": "Lawn Mower"
+        },
+        {
+            "name_kr": "에어공구",
+            "name_en": "Air Tools"
+        },
+        {
+            "name_kr": "용접공구",
+            "name_en": "Welding Tools"
+        },
+        {
+            "name_kr": "원예공구",
+            "name_en": "Gardening Tools"
+        },
+        {
+            "name_kr": "운반용품",
+            "name_en": "Transportation Equipment"
+        },
+        {
+            "name_kr": "전기용품",
+            "name_en": "Electrical Supplies"
+        },
+        {
+            "name_kr": "접착용품",
+            "name_en": "Adhesive Materials"
+        },
+        {
+            "name_kr": "체결용품",
+            "name_en": "Fastening Materials"
+        },
+        {
+            "name_kr": "측정공구",
+            "name_en": "Measuring Tools"
+        },
+        {
+            "name_kr": "포장용품",
+            "name_en": "Packaging Materials"
+        },
+        {
+            "name_kr": "페인트용품",
+            "name_en": "Paint Supplies"
+        }
+    ],
+
+    "furniture interior": [
+        {
+            "name_kr": "소파",
+            "name_en": "Sofa"
+        },
+        {
+            "name_kr": "침대 매트릭스",
+            "name_en": "Bed Mattress"
+        },
+        {
+            "name_kr": "드레스룸 행거",
+            "name_en": "Dresser Closet"
+        },
+        {
+            "name_kr": "거실장 테이블",
+            "name_en": "Living Room Table"
+        },
+        {
+            "name_kr": "의자",
+            "name_en": "Chair"
+        },
+        {
+            "name_kr": "책상 책장",
+            "name_en": "Desk Bookshelf"
+        },
+        {
+            "name_kr": "식탁 주방가구",
+            "name_en": "Dining Table Kitchen Furniture"
+        },
+        {
+            "name_kr": "선반 수납가구",
+            "name_en": "Shelf Storage Furniture"
+        },
+        {
+            "name_kr": "아동 주니어가구",
+            "name_en": "Children Junior Furniture"
+        },
+        {
+            "name_kr": "조명 스탠드",
+            "name_en": "Lighting Stand"
+        },
+        {
+            "name_kr": "시공 리모델링",
+            "name_en": "Construction Remodeling"
+        },
+        {
+            "name_kr": "셀프인테리어",
+            "name_en": "Self Interior"
+        },
+        {
+            "name_kr": "침구",
+            "name_en": "Bedding"
+        },
+        {
+            "name_kr": "홈데코 수예",
+            "name_en": "Home Decor Ornaments"
+        },
+        {
+            "name_kr": "카페트 러그",
+            "name_en": "Carpet Rug"
+        },
+        {
+            "name_kr": "야외가구",
+            "name_en": "Outdoor Furniture"
+        },
+        {
+            "name_kr": "커튼 블라인드",
+            "name_en": "Curtains Blinds"
         }
     ]
 }
+
+
