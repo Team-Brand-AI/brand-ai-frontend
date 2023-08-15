@@ -1,5 +1,17 @@
 @import "@styles/utils.scss";
 
+.page-get-started__login_redirect {
+    width: 100%;
+    height: 100vh;
+
+    @include place-center;
+    flex-direction: column;
+
+    h3 {
+        padding: 20px 0px;
+    }
+}
+
 .page-get-started__login_back {
     .heading .heading__title {
         font-size: 27px;

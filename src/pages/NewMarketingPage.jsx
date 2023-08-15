@@ -69,7 +69,7 @@ export const NewMarketingPage = {
         const [selectedSubCategory, setSelectedSubCategory] = useState(null);
 
         useEffect(() => {
-            if (selectedSubCategory) {
+            if (selectedSubCategory != null) {
                 dispatch(
                     newMarketingActions.setSubCategory({
                         kr: subcategory[category.en][selectedSubCategory]["name_kr"],
@@ -134,11 +134,11 @@ export const NewMarketingPage = {
         const dispatch = useDispatch();
         const [selectedMoodOption, setSelectedMoodOption] = useState({
             index: null,
-            text: null,
+            kr: null,
         });
         const [selectedColorOption, setSelectedColorOption] = useState({
             index: null,
-            text: null,
+            kr: null,
         });
 
         const onNextBtnClick = () => {
@@ -199,6 +199,7 @@ export const NewMarketingPage = {
             </div>
         );
     },
+
     Image: () => {
         const fileInput = useRef();
 
@@ -217,5 +218,25 @@ export const NewMarketingPage = {
                 <ButtonGroup prevPath={"/new-marketing/brandinfo"} nextPath={"/new-marketing/loading"}></ButtonGroup>
             </div>
         );
+    },
+
+    Loading: () => {
+        const { brand, category, subcategory, hashtags, options } = useSelector((state) => state.newMarketing);
+
+        const data = {
+            brandName: brand.name,
+            category: {
+                parentCategory: category.en,
+                childCategory: subcategory.en,
+            },
+            hashtag: hashtags,
+            option: {
+                mood: "Fresh",
+                baseColor: "Red",
+            },
+            description: "Delicious Cheongsong apple, 10,000 won per box.",
+        };
+
+        return <div className="new-marketing-page__loading page">로딩중 ...</div>;
     },
 };
