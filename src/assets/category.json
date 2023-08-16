@@ -11,53 +11,43 @@
     },
     {
         "name_kr": "친환경 인증",
-        "name_en": "eco",
+        "name_en": "eco-friendly certification",
         "imgSrc": "icon_eco"
     },
     {
         "name_kr": "화장품 미용",
-        "name_en": "cosmetics",
+        "name_en": "cosmetics beauty",
         "imgSrc": "icon_cosmetics"
     },
     {
-        "name_kr": "생활 용품",
-        "name_en": "living",
+        "name_kr": "생활 / 주방 용품",
+        "name_en": "life kitchen utensils",
         "imgSrc": "icon_house"
     },
     {
-        "name_kr": "주방 용품",
-        "name_en": "kitchen",
-        "imgSrc": "icon_kitchen"
-    },
-    {
         "name_kr": "반려동물 용품",
-        "name_en": "pets",
+        "name_en": "Pet Supplies",
         "imgSrc": "icon_pet"
     },
     {
         "name_kr": "출산 유아동",
-        "name_en": "baby",
+        "name_en": "maternity baby",
         "imgSrc": "icon_baby"
     },
     {
         "name_kr": "패션 의류",
-        "name_en": "clothes",
+        "name_en": "fashion clothes",
         "imgSrc": "icon_cloth"
     },
     {
         "name_kr": "스포츠 레저",
-        "name_en": "sports",
+        "name_en": "sports leisure",
         "imgSrc": "icon_sport"
     },
     {
-        "name_kr": "문구",
-        "name_en": "stationary",
+        "name_kr": "문구 / 취미용품",
+        "name_en": "hobby stationery instrument",
         "imgSrc": "icon_pencil"
-    },
-    {
-        "name_kr": "공구",
-        "name_en": "tools",
-        "imgSrc": "icon_tools"
     },
     {
         "name_kr": "가전 디지털",
@@ -65,13 +55,8 @@
         "imgSrc": "icon_digital"
     },
     {
-        "name_kr": "악기",
-        "name_en": "instrument",
-        "imgSrc": "icon_music"
-    },
-    {
         "name_kr": "자동차",
-        "name_en": "car",
+        "name_en": "automotive tools",
         "imgSrc": "icon_car"
     }
 ]

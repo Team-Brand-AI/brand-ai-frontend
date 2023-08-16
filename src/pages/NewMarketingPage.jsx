@@ -92,7 +92,7 @@ export const NewMarketingPage = {
 
                 <SubCategoryContext.Provider value={{ selectedItem: selectedSubCategory, setSelectedItem: setSelectedSubCategory }}>
                     <Grid.Container context={SubCategoryContext} width={"min(100%, 600px)"}>
-                        {subcategory["food"].map((element, index) => {
+                        {subcategory[category.en].map((element, index) => {
                             return <Grid.Item key={index} text={element["name_kr"]} size={"150px"}></Grid.Item>;
                         })}
                     </Grid.Container>
