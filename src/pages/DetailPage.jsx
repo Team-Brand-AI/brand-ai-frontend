@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClipboardList, faCirclePlus, faGear, faCircleArrowRight } from "@fortawesome/free-solid-svg-icons";
 
-import { useEffect } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 import { TopNav } from "../components/Assets";
@@ -12,23 +12,23 @@ import { ClipBoard } from "../components/ClipBoard";
 import { InnerLabel } from "../components/Label";
 
 import base64 from "@assets/base64.json";
+import { useDispatch, useSelector } from "react-redux";
 
 export const DetailPage = () => {
     const navigate = useNavigate();
-    const { id } = useParams();
+    const dispatch = useDispatch();
 
-    useEffect(() => {
-        console.log(id);
-    }, []);
+    const { id } = useParams();
+    const { cardList } = useSelector((state) => state.userData);
+    const cardData = cardList.data.filter((card) => card.id == id);
+    // const [cardData, setCardData] = useState(null);
 
     return (
         <>
             <TopNav
                 onPrevBtnClick={() => navigate("/my-marketing")}
                 imgSrc={"/img/img_test_1.jpg"}
-                title={"제목임"}
-                subtitle={"소제목임"}
-                date={"2023-08-13"}
+                title={cardData[0].description.productName}
             ></TopNav>
 
             <div className="detail-page page">
@@ -40,12 +40,8 @@ export const DetailPage = () => {
 
                 <InnerLabel>생성된 로고</InnerLabel>
                 <Logo.Container itemSize={"150px"} containerHeight={"180px"}>
-                    <Logo.Item base64={base64["base64"]}></Logo.Item>
-                    <Logo.Item base64={base64["base64"]}></Logo.Item>
-                    <Logo.Item base64={base64["base64"]}></Logo.Item>
-                    <Logo.Item base64={base64["base64"]}></Logo.Item>
-                    <Logo.Item base64={base64["base64"]}></Logo.Item>
-                    <Logo.Item base64={base64["base64"]}></Logo.Item>
+                    <Logo.Item imgSrc={cardData[0].logoUrl1}></Logo.Item>
+                    <Logo.Item imgSrc={cardData[0].logoUrl2}></Logo.Item>
                 </Logo.Container>
                 <Button width="min(100%, 600px)" type="primary" styles={{ margin: "0px auto" }}>
                     로고 파일 다운로드
