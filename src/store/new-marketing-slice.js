@@ -1,15 +1,22 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+import { postRequest } from "../utils/request";
+import { generatedAssetsActions, generatedAssetsSlice } from "./generated-assets-slice";
+
 export const newMarketingSlice = createSlice({
     name: "new-marketing",
 
     initialState: {
-        category_index: null,
-        category_kr: null,
-        category_en: null,
+        category: {
+            index: null,
+            kr: null,
+            en: null,
+        },
 
-        subcategory_kr: null,
-        subcategory_en: null,
+        subcategory: {
+            kr: null,
+            en: null,
+        },
 
         hashtags: [],
 
@@ -19,23 +26,34 @@ export const newMarketingSlice = createSlice({
         },
 
         options: {
-            mood: null,
-            color: null,
+            mood: {
+                index: null,
+                kr: null,
+                en: null,
+            },
+            color: {
+                index: null,
+                kr: null,
+                en: null,
+            },
         },
 
-        brandImg: "",
+        brandImg: {
+            isUploaded: false,
+            data: null,
+        },
     },
 
     reducers: {
         setCategory: (state, action) => {
-            state.category_index = action.payload.index;
-            state.category_kr = action.payload.kr;
-            state.category_en = action.payload.en;
+            state.category.index = action.payload.index;
+            state.category.kr = action.payload.kr;
+            state.category.en = action.payload.en;
         },
 
         setSubCategory: (state, action) => {
-            state.subcategory_kr = action.payload.kr;
-            state.subcategory_en = action.payload.en;
+            state.subcategory.kr = action.payload.kr;
+            state.subcategory.en = action.payload.en;
         },
 
         appendHashTag: (state, action) => {
@@ -43,23 +61,68 @@ export const newMarketingSlice = createSlice({
         },
 
         setBrandName: (state, action) => {
-            state.brandName = action.payload;
+            state.brand.name = action.payload;
         },
 
         setBrandInfo: (state, action) => {
-            state.brandInfo = action.payload;
+            state.brand.info = action.payload;
         },
 
         setMoodOption: (state, action) => {
-            state.options.mood = action.payload;
+            state.options.mood.index = action.payload.index;
+            state.options.mood.kr = action.payload.text;
+
+            if (action.payload.index === 0) state.options.mood.en = "Colorfully";
+            if (action.payload.index === 1) state.options.mood.en = "Normal";
+            if (action.payload.index === 2) state.options.mood.en = "Monotonously";
         },
 
         setColorOption: (state, action) => {
-            state.options.color = action.payload;
+            state.options.color.index = action.payload.index;
+            state.options.color.kr = action.payload.text;
+
+            if (action.payload.index === 0) state.options.color.en = "Deep";
+            if (action.payload.index === 1) state.options.color.en = "Normal";
+            if (action.payload.index === 2) state.options.color.en = "Soft";
         },
 
         setBrandImage: (state, action) => {
-            state.brandImg = action.payload.img_base64;
+            state.brandImg = action.payload;
+        },
+
+        initInputs: (state, action) => {
+            state.category = {
+                index: null,
+                kr: null,
+                en: null,
+            };
+
+            state.subcategory = {
+                kr: null,
+                en: null,
+            };
+
+            state.hashtags = [];
+
+            state.brand = {
+                name: null,
+                info: null,
+            };
+
+            state.options = {
+                mood: {
+                    index: null,
+                    kr: null,
+                    en: null,
+                },
+                color: {
+                    index: null,
+                    kr: null,
+                    en: null,
+                },
+            };
+
+            state.brandImg = null;
         },
     },
 });

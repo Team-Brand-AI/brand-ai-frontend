@@ -11,7 +11,11 @@ export const getStartedSlice = createSlice({
 
     reducers: {
         agreeTermsOfUse: (state, action) => {
-            state.termsOfUse = action.payload.toggle;
+            state.termsOfUse = true;
+        },
+
+        disagreeTermsOfUse: (state, action) => {
+            state.termsOfUse = false;
         },
 
         setGenderMan: (state, action) => {

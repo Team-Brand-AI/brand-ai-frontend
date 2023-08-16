@@ -9,8 +9,8 @@ export const Input = {
     Text: ({ placeholder, id }) => {
         return <input id={id} type="text" placeholder={placeholder} className="input__text" />;
     },
-    TextArea: ({ placeholder }) => {
-        return <textarea className="input__textarea" placeholder={placeholder}></textarea>;
+    TextArea: ({ placeholder, id }) => {
+        return <textarea id={id} className="input__textarea" placeholder={placeholder}></textarea>;
     },
 };
 
@@ -21,10 +21,6 @@ export const DropDown = {
 
         const [isOpened, setIsOpened] = useState(false);
         const { selectedItem, setSelectedItem } = useContext(context);
-
-        useEffect(() => {
-            console.log(selectedItem);
-        }, [selectedItem]);
 
         const onClickHandler = () => {
             setIsOpened((isOpened) => !isOpened);
