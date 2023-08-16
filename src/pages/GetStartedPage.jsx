@@ -1,20 +1,33 @@
 import { useContext, useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import { useDispatch, useSelector } from "react-redux";
 
 import { Label } from "../components/Label";
 import { Options } from "../components/Options";
 import { NavBar } from "../components/NavBar";
 import { Heading } from "../components/Heading";
 import { Selector } from "../components/Selector";
+import { ButtonGroup } from "../components/Button";
 import { AgeContext } from "../context/AgeContext";
 import { GenderContext } from "../context/GenderContext";
 import { Button } from "../components/Button";
+import { LoadingIcon } from "../components/Loading";
+
+import { KAKAO_AUTH_URL } from "../utils/loginAPI";
+
+import { authActions, RedirectAuthThunk } from "../store/auth-slice";
+import { getStartedActions } from "../store/get-started-slice";
 
 import "./GetStartedPage.scss";
 
 export const GetStartedPage = {
     TermsOfUse: () => {
+        const { termsOfUse } = useSelector((state) => state.getStarted);
+        const dispatch = useDispatch();
+
         const toggleRef = useRef();
         const [toggle, setToggle] = useState(false);
 
@@ -26,6 +39,11 @@ export const GetStartedPage = {
             toggleRef.current.addEventListener("click", onToggleClickHandler);
             return () => toggleRef.current.removeEventListener("click", onToggleClickHandler);
         }, []);
+
+        useEffect(() => {
+            if (toggle) dispatch(getStartedActions.agreeTermsOfUse({ toggle: true }));
+            else dispatch(getStartedActions.agreeTermsOfUse({ toggle: false }));
+        }, [toggle]);
 
         return (
             <main className="page-get-started__terms-of-use page">
@@ -53,13 +71,28 @@ export const GetStartedPage = {
                     </div>
                     <div className="terms-of-use-checkbox__text">개인정보 수집 이용에 동의합니다</div>
                 </div>
+
+                <ButtonGroup prevPath={"/"} nextPath={"/get-started/personal-info"}></ButtonGroup>
             </main>
         );
     },
 
     PersonalInfo: () => {
+        const { gender } = useSelector((state) => state.getStarted);
+        const dispatch = useDispatch();
+
         const [selectedGender, setSelectedGender] = useState(0);
         const [selectedAge, setSelectedAge] = useState(0);
+
+        useEffect(() => {
+            if (selectedGender === 0) dispatch(getStartedActions.setGenderMan());
+            if (selectedGender === 1) dispatch(getStartedActions.setGenderWoman());
+        }, [selectedGender]);
+
+        useEffect(() => {
+            let age = (selectedAge + 2) * 10;
+            dispatch(getStartedActions.setAge({ age: age }));
+        }, [selectedAge]);
 
         return (
             <main className="page-get-started__age page">
@@ -89,32 +122,62 @@ export const GetStartedPage = {
                         <Options.Item>80대</Options.Item>
                     </Options.Container>
                 </AgeContext.Provider>
+
+                <ButtonGroup prevPath={"/get-started/terms-of-use"} nextPath={"/my-marketing"}></ButtonGroup>
             </main>
         );
     },
 
     Login: () => {
-        function SocialKakao() {
-            const REDIRECT_URI=`http://localhost:3000/get-started/terms-of-use`;
-            const REST_API_KEY=`d57feeaf862b3d286ce2ca7c21039022`;
-            
-            //REST API 형식
-            const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}`;
-            window.location.href = KAKAO_AUTH_URL;
-        }
-
-        return(
-            <main className="page-get-started__login_back">
+        return (
+            <main className="page-get-started__login_back page">
                 <Heading
                     title={"Marketisy를 사용하기 위해 로그인해주세요!"}
                     subtitle={["로그인 해두면 카카오톡으로 내 상품을 빠르게 공유할 수 있어요."]}
                 />
                 <div className="login-page-container">
                     <div className="login-page-container__btn">
-                        <Button type="primary" onClick={()=>SocialKakao()}>카카오톡 로그인하기</Button>
+                        <Button
+                            type="primary"
+                            onClick={() => {
+                                window.location.href = KAKAO_AUTH_URL;
+                            }}
+                        >
+                            카카오톡 로그인하기
+                        </Button>
                     </div>
                 </div>
             </main>
-        )
-    }
+        );
+    },
+
+    LoginRedirect: () => {
+        const navigate = useNavigate();
+        const location = useLocation();
+
+        const dispatch = useDispatch();
+        const { token } = useSelector((state) => state.auth);
+
+        useEffect(() => {
+            dispatch(authActions.setCode(location.search.slice(6)));
+            dispatch(RedirectAuthThunk(location.search.slice(6)));
+        }, [location, dispatch]);
+
+        useEffect(() => {
+            // 로그인 토큰 획득 성공
+            if (token.status === "success") {
+                navigate("/my-marketing");
+            }
+            // 로그인 토큰 획득 실패
+            if (token.status === "failed") {
+            }
+        }, [token.status, navigate]);
+
+        return (
+            <main className="page-get-started__login_redirect page">
+                <LoadingIcon />
+                <h3>잠시만 기다려주세요 ... </h3>
+            </main>
+        );
+    },
 };

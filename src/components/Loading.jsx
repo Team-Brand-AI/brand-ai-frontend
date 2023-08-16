@@ -2,7 +2,7 @@ import "./Loading.scss";
 
 export const LoadingIcon = () => {
     return (
-        <div class="lds-ring">
+        <div className="lds-ring">
             <div></div>
             <div></div>
             <div></div>

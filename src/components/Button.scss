@@ -4,6 +4,21 @@ $btn-width: 100%;
 $btn-height: 60px;
 $btn-border-radius: 20px;
 
+.btn-group-container {
+    z-index: 99999;
+    position: fixed;
+    bottom: 50px;
+
+    display: flex;
+
+    width: 80%;
+    max-width: 1000px;
+
+    button {
+        margin: 0px 10px;
+    }
+}
+
 .btn-container {
     width: $btn-width;
     height: $btn-height;
@@ -26,6 +41,11 @@ $btn-border-radius: 20px;
 .btn-type__secondary {
     color: $color-gray;
     background-color: $color-secondary;
+}
+
+.btn_type__danger {
+    color: $color-white;
+    background-color: $color-red;
 }
 
 .btn-type__rounded {
