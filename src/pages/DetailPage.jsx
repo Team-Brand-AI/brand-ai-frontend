@@ -13,6 +13,7 @@ import { InnerLabel } from "../components/Label";
 
 import base64 from "@assets/base64.json";
 import { useDispatch, useSelector } from "react-redux";
+import { downloadImage } from "../utils/downloadImg";
 
 export const DetailPage = () => {
     const navigate = useNavigate();
@@ -43,7 +44,15 @@ export const DetailPage = () => {
                     <Logo.Item imgSrc={cardData[0].logoUrl1}></Logo.Item>
                     <Logo.Item imgSrc={cardData[0].logoUrl2}></Logo.Item>
                 </Logo.Container>
-                <Button width="min(100%, 600px)" type="primary" styles={{ margin: "0px auto" }}>
+                <Button
+                    onClick={() => {
+                        downloadImage(cardData[0].logoUrl1, "logo1.png");
+                        downloadImage(cardData[0].logoUrl2, "logo2.png");
+                    }}
+                    width="min(100%, 600px)"
+                    type="primary"
+                    styles={{ margin: "0px auto" }}
+                >
                     로고 파일 다운로드
                 </Button>
 
