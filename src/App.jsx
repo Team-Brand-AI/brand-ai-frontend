@@ -7,6 +7,7 @@ import { GetStartedPage } from "./pages/GetStartedPage";
 import { MyMarketingPage } from "./pages/MyMarketingPage";
 import { DetailPage } from "./pages/DetailPage";
 import { SettingsPage } from "./pages/SettingsPage";
+import { ResultPage }from "./pages/ResultPage";
 
 import { Provider } from "react-redux";
 import { store } from "./store/store";
@@ -33,6 +34,8 @@ function App() {
                     <Route path="/new-marketing/image" element={<NewMarketingPage.Image />}></Route>
                     <Route path="/new-marketing/loading" element={<NewMarketingPage.Loading />}></Route>
                 </Route>
+
+                <Route path="/result/:id" element={<ResultPage />}></Route>
 
                 <Route path="/settings" element={<SettingsPage />}></Route>
             </Routes>
