@@ -109,7 +109,13 @@ export const DetailPage = () => {
                     <br />
                 </ClipBoard>
 
-                <Button width="min(100%, 600px)" height="120px" type="primary" styles={{ margin: "0px auto" }}>
+                <Button
+                    onClick={() => navigate(`/result/${id}`)}
+                    width="min(100%, 600px)"
+                    height="120px"
+                    type="primary"
+                    styles={{ margin: "0px auto" }}
+                >
                     <FontAwesomeIcon icon={faCircleArrowRight} size="xl" style={{ padding: "0px 10px 0px 10px" }} />
                     상세 정보 이미지로 만들기
                 </Button>
