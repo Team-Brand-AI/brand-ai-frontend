@@ -11,6 +11,14 @@ export const LoadingIcon = () => {
     );
 };
 
+export const LoadingComponent = () => {
+    return (
+        <div className="loading-component">
+            <LoadingIcon />
+        </div>
+    );
+};
+
 export const LoadingPage = () => {
     return (
         <div className="loading-page">

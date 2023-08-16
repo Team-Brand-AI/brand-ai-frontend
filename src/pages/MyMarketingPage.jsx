@@ -9,6 +9,7 @@ import { ButtonPlaceHolder } from "../components/Button";
 import { UserDataFetchThunk } from "../store/user-data-slice";
 
 import { base64_identifier } from "../utils/base64";
+import { LoadingComponent, LoadingIcon } from "../components/Loading";
 
 export const MyMarketingPage = () => {
     const navigate = useNavigate();
@@ -22,7 +23,8 @@ export const MyMarketingPage = () => {
     }, []);
 
     useEffect(() => {
-        // if (cardList.staus === "success") {
+        if (cardList.staus === "fetching") {
+        }
         console.log(cardList.data);
         // }
     }, [cardList.status]);
@@ -35,6 +37,8 @@ export const MyMarketingPage = () => {
                 <NavBar.Item icon={faGear} text="환경설정" link="/settings" />
             </NavBar.Bottom>
             <main className="main-page page">
+                {cardList.status === "fetching" && <LoadingComponent />}
+
                 {cardList.data &&
                     cardList.data.map((element, index) => {
                         return (
