@@ -70,12 +70,10 @@ export const Logo = {
             </div>
         );
     },
-    Item: ({ base64 }) => {
-        const image = useRef();
-
+    Item: ({ imgSrc, className, id }) => {
         return (
             <div className="logo-item">
-                <img src={`data:image/jpeg;base64,${base64}`} alt="generated-logo" />
+                <img id={id} className={className} src={imgSrc} alt="generated-logo" />
             </div>
         );
     },
