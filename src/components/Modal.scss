@@ -29,15 +29,23 @@
     background-color: $color-white;
 
     .modal-item {
+        width: 100%;
+
         h2 {
-            padding: 20px 0px;
+            padding-top: 20px;
+            padding-bottom: 5px;
+            text-align: center;
+        }
+        h4 {
+            padding-top: 5px;
+            padding-bottom: 20px;
             text-align: center;
         }
 
         .modal-item__btn-container {
             display: flex;
 
-            padding: 10px 0px;
+            padding-top: 10px;
 
             button {
                 margin: 0px 5px;

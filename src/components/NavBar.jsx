@@ -68,7 +68,9 @@ export const NavBar = {
             <div className="nav-top">
                 <div className="nav-top__close">
                     <div style={{ flexGrow: 1 }}></div>
-                    <FontAwesomeIcon icon={faXmark} onClick={() => onCloseClick()} />
+                    <div className="nav-top__close-btn" onClick={() => onCloseClick()}>
+                        <FontAwesomeIcon icon={faXmark} />
+                    </div>
                 </div>
             </div>
         );
