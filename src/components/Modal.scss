@@ -1,0 +1,47 @@
+@import "@styles/utils.scss";
+
+.modal-wrapper {
+    position: fixed;
+    z-index: 9999999;
+    top: 0;
+    left: 0;
+
+    display: flex;
+    @include place-center;
+
+    width: 100%;
+    height: 100vh;
+
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 400px;
+
+    padding: 30px;
+    border-radius: 20px;
+
+    background-color: $color-white;
+
+    .modal-item {
+        h2 {
+            padding: 20px 0px;
+            text-align: center;
+        }
+
+        .modal-item__btn-container {
+            display: flex;
+
+            padding: 10px 0px;
+
+            button {
+                margin: 0px 5px;
+            }
+        }
+    }
+}
