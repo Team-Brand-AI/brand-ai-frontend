@@ -1,7 +1,7 @@
 import { useRef, useLayoutEffect, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faX, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { Link, useNavigate } from "react-router-dom";
-
 
 import "./NavBar.scss";
 
@@ -63,4 +63,14 @@ export const NavBar = {
         );
     },
 
+    Close: ({ onCloseClick }) => {
+        return (
+            <div className="nav-top">
+                <div className="nav-top__close">
+                    <div style={{ flexGrow: 1 }}></div>
+                    <FontAwesomeIcon icon={faXmark} onClick={() => onCloseClick()} />
+                </div>
+            </div>
+        );
+    },
 };
