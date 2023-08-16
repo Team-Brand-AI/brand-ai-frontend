@@ -38,7 +38,12 @@ export const MyMarketingPage = () => {
                 {cardList.data &&
                     cardList.data.map((element, index) => {
                         return (
-                            <Card key={index} title={element.description.productName} onClick={() => navigate(`/my-marketing/${element.id}`)}></Card>
+                            <Card
+                                key={index}
+                                title={element.description.productName}
+                                imgSrc={base64_identifier + element.imagePath}
+                                onClick={() => navigate(`/my-marketing/${element.id}`)}
+                            ></Card>
                         );
                     })}
 
