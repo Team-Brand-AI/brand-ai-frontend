@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const NEW_LOGO_API_URL = "/api/logo";
-const NEW_PROMPT_API_URL = "/api/";
+const NEW_LOGO_API_URL = "/dai/api/logo";
+const NEW_DESCRIPTION_API_URL = "/dai/api/description";
+const NEW_CARD_API_URL = "/dai/auth/card";
 
 export const generatedAssetsSlice = createSlice({
     name: "generated-assets",
@@ -9,92 +10,125 @@ export const generatedAssetsSlice = createSlice({
     initialState: {
         logo: {
             state: null,
-            url: [],
+            url: null,
         },
 
-        prompt: {
+        description: {
             state: null,
+            data: null,
+        },
 
-            feature_first: "",
-            feature_description_1: "",
+        imagePath: {
+            state: null,
+            data: null,
+        },
 
-            feature_second: "",
-            feature_description_2: "",
-
-            feature_third: "",
-            feature_description_3: "",
-
-            promotion: "",
-
-            product_name: "",
-
-            introduction: "",
+        cardUpload: {
+            state: null,
         },
     },
 
     reducers: {
-        setLogoState: (state, action) => {
-            state.logo.state = action.payload;
+        setLogo: (state, action) => {
+            state.logo = action.payload;
         },
 
-        setPromptState: (state, action) => {
-            state.prompt.state = action.payload;
+        setDescription: (state, action) => {
+            state.description = action.payload;
         },
 
-        setLogoUrl: (state, action) => {
-            state.logo.url.push(action.payload);
-        },
-
-        setPrompt: (state, action) => {
-            state.prompt = action.payload;
+        setCardUploadState: (state, action) => {
+            state.cardUpload.state = action.payload;
         },
     },
 });
 
-export const NewLogoFetchThunk = () => {
+export const NewLogoFetchThunk = (requestBody) => {
     return async (dispatch) => {
         const request = async () => {
             const response = await fetch(NEW_LOGO_API_URL, {
                 method: "POST",
-                headers: { "Content-Type": "applictation/json" },
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(requestBody),
             });
-            if (!response.ok) throw new Error("New Logo Post Request Failed");
+            if (!response.ok) throw new Error("New Logo Request Failed");
             return response.json();
         };
 
         try {
             const data = await request();
-            dispatch(generatedAssetsActions.setLogoState("success"));
-
-            for (const url of data.url) {
-                dispatch(generatedAssetsActions.setLogoUrl(url));
-            }
+            dispatch(
+                generatedAssetsActions.setLogo({
+                    state: "success",
+                    url: data.url,
+                })
+            );
         } catch (err) {
-            dispatch(dispatch(generatedAssetsActions.setLogoState("failed")));
+            dispatch(
+                generatedAssetsActions.setLogo({
+                    state: "failed",
+                    url: null,
+                })
+            );
         }
     };
 };
 
-export const NewPromptFetchThunk = () => {
+export const NewDescriptionFetchThunk = (requestBody) => {
     return async (dispatch) => {
         const request = async () => {
-            const response = await fetch(NEW_PROMPT_API_URL, {
+            const response = await fetch(NEW_DESCRIPTION_API_URL, {
                 method: "POST",
-                headers: { "Content-Type": "applictation/json" },
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(requestBody),
             });
-            if (!response.ok) throw new Error("New Logo Post Request Failed");
+            if (!response.ok) throw new Error("New Description Request Failed");
             return response.json();
         };
 
         try {
             const data = await request();
-            dispatch(generatedAssetsActions.setLogoState("success"));
-
-            for (const url of data.url) {
-                dispatch(generatedAssetsActions.setLogoUrl(url));
-            }
+            dispatch(
+                generatedAssetsActions.setDescription({
+                    state: "success",
+                    data: data,
+                })
+            );
         } catch (err) {
-            dispatch(generatedAssetsActions.setLogoState("failed"));
+            dispatch(
+                generatedAssetsActions.setDescription({
+                    state: "failed",
+                    data: null,
+                })
+            );
+        }
+    };
+};
+
+export const NewCardFetchThunk = (token, requestBody) => {
+    return async (dispatch) => {
+        const request = async () => {
+            const response = await fetch(`${NEW_CARD_API_URL}?token=${token}`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(requestBody),
+            });
+
+            if (!response.ok) throw new Error("New Card Request Failed!");
+            return response.json();
+        };
+
+        try {
+            const data = await request();
+            dispatch(generatedAssetsActions.setCardUploadState("success"));
+        } catch (err) {
+            dispatch(generatedAssetsActions.setCardUploadState("failed"));
         }
     };
 };

@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, useLayoutEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import { NavBar } from "../components/NavBar";
@@ -8,6 +8,7 @@ import { Label } from "../components/Label";
 import { Input, DropDown } from "../components/Forms";
 import { HashTag } from "../components/HashTag";
 import { Button, ButtonGroup, ButtonPlaceHolder } from "../components/Button";
+import { LoadingIcon } from "../components/Loading";
 
 import { faCloudArrowUp } from "@fortawesome/free-solid-svg-icons";
 
@@ -17,7 +18,12 @@ import subcategory from "@assets/subcategory.json";
 import { CategoryContext, SubCategoryContext } from "../context/CategoryContext";
 import { MoodContext, ColorContext } from "../context/OptionContext";
 
+import { base64_identifier } from "../utils/base64";
+
 import { newMarketingActions } from "../store/new-marketing-slice.js";
+import { NewCardFetchThunk, NewDescriptionFetchThunk, NewLogoFetchThunk } from "../store/generated-assets-slice";
+
+import "./NewMarketingPage.scss";
 
 export const NewMarketingPage = {
     Category: () => {
@@ -202,18 +208,65 @@ export const NewMarketingPage = {
 
     Image: () => {
         const fileInput = useRef();
+        const dispatch = useDispatch();
+        const { brandImg } = useSelector((state) => state.newMarketing);
+
+        const onImageUpload = (event) => {
+            const file = event.target.files[0];
+
+            if (file) {
+                console.log(file);
+                const reader = new FileReader();
+
+                reader.onload = (e) => {
+                    const base64String = e.target.result.slice(base64_identifier.length + 1).toString();
+                    console.log(base64String);
+                    dispatch(newMarketingActions.setBrandImage({ isUploaded: true, data: base64String }));
+                };
+                reader.readAsDataURL(file);
+            }
+        };
+
+        const onImageDelete = () => {
+            dispatch(newMarketingActions.setBrandImage({ isUploaded: false, data: null }));
+        };
 
         return (
             <div className="new-marketing-page__image page">
                 <NavBar.Top cur={4} max={5} />
                 <Heading title={"이미지를 업로드 해주세요"} subtitle={["판매 하시려는 상품이 잘 보이게", "사진을 업로드 해주세요"]} />
-                <ButtonPlaceHolder
-                    icon={faCloudArrowUp}
-                    iconSize="xl"
-                    text={"파일 업로드"}
-                    onClick={() => fileInput.current.click()}
-                ></ButtonPlaceHolder>
-                <input style={{ display: "none" }} ref={fileInput} type="file" className="input__image" accept="image/*" multiple />
+
+                {brandImg.isUploaded === false ? (
+                    <>
+                        <ButtonPlaceHolder
+                            icon={faCloudArrowUp}
+                            iconSize="xl"
+                            text={"파일 업로드"}
+                            onClick={() => fileInput.current.click()}
+                        ></ButtonPlaceHolder>
+
+                        <input
+                            onChange={onImageUpload}
+                            style={{ display: "none" }}
+                            ref={fileInput}
+                            type="file"
+                            className="input__image"
+                            accept="image/*"
+                        />
+                    </>
+                ) : (
+                    <>
+                        <img src={base64_identifier + brandImg.data} className="img-preview"></img>
+                        <Button
+                            onClick={onImageDelete}
+                            type="danger"
+                            width="min(100%, 600px)"
+                            styles={{ margin: "20px auto", color: "white", backgroundColor: "#ff5252" }}
+                        >
+                            이미지 제거
+                        </Button>
+                    </>
+                )}
 
                 <ButtonGroup prevPath={"/new-marketing/brandinfo"} nextPath={"/new-marketing/loading"}></ButtonGroup>
             </div>
@@ -221,22 +274,56 @@ export const NewMarketingPage = {
     },
 
     Loading: () => {
-        const { brand, category, subcategory, hashtags, options } = useSelector((state) => state.newMarketing);
+        const dispatch = useDispatch();
+        const { brand, category, subcategory, hashtags, options, brandImg } = useSelector((state) => state.newMarketing);
+        const { logo, description } = useSelector((state) => state.generatedAssets);
+        const { token } = useSelector((state) => state.auth);
 
-        const data = {
-            brandName: brand.name,
-            category: {
-                parentCategory: category.en,
-                childCategory: subcategory.en,
-            },
-            hashtag: hashtags,
-            option: {
-                mood: "Fresh",
-                baseColor: "Red",
-            },
-            description: "Delicious Cheongsong apple, 10,000 won per box.",
-        };
+        const [loadingText, setLoadingText] = useState("로딩중 입니다");
 
-        return <div className="new-marketing-page__loading page">로딩중 ...</div>;
+        useEffect(() => {
+            const data = {
+                brandName: brand.name,
+                category: {
+                    parentCategory: category.en,
+                    childCategory: subcategory.en,
+                },
+                hashtag: hashtags,
+                option: {
+                    mood: options.mood.en,
+                    baseColor: options.color.en,
+                },
+                description: brand.info,
+            };
+            console.log(data);
+
+            setLoadingText((loadingText) => "브랜드 로고 및 설명 생성중");
+            // 로고 생성
+            dispatch(NewLogoFetchThunk(data));
+            // 설명 생성
+            dispatch(NewDescriptionFetchThunk(data));
+        }, []);
+
+        useEffect(() => {
+            // 카드 생성
+            if (logo.state === "success" && description.state === "success" && token != null) {
+                setLoadingText((loadingText) => "생성한 데이터 저장중");
+                dispatch(
+                    NewCardFetchThunk(token.data, {
+                        description: description.data,
+                        logoUrl1: logo.url[0],
+                        logoUrl2: logo.url[1],
+                        imagePath: brandImg.data,
+                    })
+                );
+            }
+        }, [logo.state, description.state, token.data]);
+
+        return (
+            <div className="new-marketing-page__loading page">
+                <LoadingIcon></LoadingIcon>
+                <h3>{loadingText}</h3>
+            </div>
+        );
     },
 };

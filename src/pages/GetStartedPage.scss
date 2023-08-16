@@ -7,6 +7,8 @@
     @include place-center;
     flex-direction: column;
 
+    background-color: $color-white;
+
     h3 {
         padding: 20px 0px;
     }

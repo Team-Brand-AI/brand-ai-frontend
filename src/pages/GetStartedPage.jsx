@@ -16,7 +16,7 @@ import { GenderContext } from "../context/GenderContext";
 import { Button } from "../components/Button";
 import { LoadingIcon } from "../components/Loading";
 
-import { LOGIN_REDIRECT_URL, KAKAO_AUTH_URL, REST_API_KEY } from "../utils/loginAPI";
+import { KAKAO_AUTH_URL } from "../utils/loginAPI";
 
 import { authActions, RedirectAuthThunk } from "../store/auth-slice";
 import { getStartedActions } from "../store/get-started-slice";

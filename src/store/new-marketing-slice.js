@@ -3,9 +3,6 @@ import { createSlice } from "@reduxjs/toolkit";
 import { postRequest } from "../utils/request";
 import { generatedAssetsActions, generatedAssetsSlice } from "./generated-assets-slice";
 
-const NEW_LOGO_API_URL = "/dai/api/logo";
-const NEW_DESCRIPTION_API_URL = "/dai/api/description";
-
 export const newMarketingSlice = createSlice({
     name: "new-marketing",
 
@@ -41,7 +38,10 @@ export const newMarketingSlice = createSlice({
             },
         },
 
-        brandImg: "",
+        brandImg: {
+            isUploaded: false,
+            data: null,
+        },
     },
 
     reducers: {
@@ -87,18 +87,44 @@ export const newMarketingSlice = createSlice({
         },
 
         setBrandImage: (state, action) => {
-            state.brandImg = action.payload.img_base64;
+            state.brandImg = action.payload;
+        },
+
+        initInputs: (state, action) => {
+            state.category = {
+                index: null,
+                kr: null,
+                en: null,
+            };
+
+            state.subcategory = {
+                kr: null,
+                en: null,
+            };
+
+            state.hashtags = [];
+
+            state.brand = {
+                name: null,
+                info: null,
+            };
+
+            state.options = {
+                mood: {
+                    index: null,
+                    kr: null,
+                    en: null,
+                },
+                color: {
+                    index: null,
+                    kr: null,
+                    en: null,
+                },
+            };
+
+            state.brandImg = null;
         },
     },
 });
-
-export const NewMarketingFetchThunk = (requestBody) => {
-    return async (dispatch) => {
-        try {
-            const response = await postRequest(NEW_LOGO_API_URL, requestBody);
-            //
-        } catch (err) {}
-    };
-};
 
 export const newMarketingActions = newMarketingSlice.actions;

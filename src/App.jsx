@@ -31,6 +31,7 @@ function App() {
                     <Route path="/new-marketing/hashtag" element={<NewMarketingPage.HashTag />}></Route>
                     <Route path="/new-marketing/brandinfo" element={<NewMarketingPage.BrandInfo />}></Route>
                     <Route path="/new-marketing/image" element={<NewMarketingPage.Image />}></Route>
+                    <Route path="/new-marketing/loading" element={<NewMarketingPage.Loading />}></Route>
                 </Route>
 
                 <Route path="/settings" element={<SettingsPage />}></Route>
