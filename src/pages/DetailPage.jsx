@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClipboardList, faCirclePlus, faGear, faCircleArrowRight } from "@fortawesome/free-solid-svg-icons";
 
-import { useEffect, useLayoutEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState, useRef } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 import { TopNav } from "../components/Assets";
@@ -13,11 +13,16 @@ import { InnerLabel } from "../components/Label";
 
 import base64 from "@assets/base64.json";
 import { useDispatch, useSelector } from "react-redux";
-import { downloadImage } from "../utils/downloadImg";
+import { downloadHtmlAsImage, downloadImage, downloadTagAsImage } from "../utils/downloadImg";
+
+import download from "downloadjs";
+import { toPng } from "html-to-image";
 
 export const DetailPage = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
+
+    const [logoRef1, logoRef2] = [useRef(), useRef()];
 
     const { id } = useParams();
     const { cardList } = useSelector((state) => state.userData);
@@ -41,13 +46,22 @@ export const DetailPage = () => {
 
                 <InnerLabel>생성된 로고</InnerLabel>
                 <Logo.Container itemSize={"150px"} containerHeight={"180px"}>
-                    <Logo.Item imgSrc={cardData[0].logoUrl1}></Logo.Item>
-                    <Logo.Item imgSrc={cardData[0].logoUrl2}></Logo.Item>
+                    <Logo.Item id="logo-1" ref={logoRef1} imgSrc={cardData[0].logoUrl1}></Logo.Item>
+                    <Logo.Item id="logo-2" ref={logoRef2} imgSrc={cardData[0].logoUrl2}></Logo.Item>
                 </Logo.Container>
                 <Button
                     onClick={() => {
-                        downloadImage(cardData[0].logoUrl1, "logo1.png");
-                        downloadImage(cardData[0].logoUrl2, "logo2.png");
+                        // downloadTagAsImage(document.querySelector(".logo-download-1"), "logo1.png");
+                        // downloadTagAsImage(document.querySelector(".logo-download-2"), "logo2.png");
+                        // toPng(document.querySelector("#logo-1"))
+                        //     .then((dataurl) => {
+                        //         console.log("toPng");
+                        //         download(dataurl, "logo1.png");
+                        //     })
+                        //     .catch((err) => {
+                        //         console.log(err);
+                        //     });
+                        // 다운로드 안됌!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                     }}
                     width="min(100%, 600px)"
                     type="primary"
@@ -66,19 +80,33 @@ export const DetailPage = () => {
 
                 <InnerLabel>생성된 제품 설명</InnerLabel>
                 <ClipBoard>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio id explicabo magnam, ea quidem numquam aliquam officia debitis
-                    voluptatum fuga, et dolorem dolore, porro omnis animi eos quis dolores hic. Laudantium corporis est error maxime dicta itaque
-                    quibusdam, amet doloribus accusantium adipisci consectetur quisquam quasi ipsa, facilis magnam eos. Cupiditate accusamus cum
-                    illum! Quam obcaecati, numquam animi nobis earum dolorum atque consectetur accusantium. Architecto ad maiores voluptatibus illum
-                    nostrum. Voluptatum, et necessitatibus magni nesciunt dignissimos exercitationem vel iure aspernatur repellendus, quos, officia
-                    eveniet placeat rerum ab illum illo tempora nulla cupiditate facere asperiores tenetur excepturi. A asperiores assumenda at error?
+                    {cardData[0].description.productName}
+                    <br />
+                    <br />
+                    {cardData[0].description.introduction}
+                    <br />
+                    <br />
+                    1. {cardData[0].description.featureFirst}
+                    <br />
+                    {cardData[0].description.featureDescription1}
+                    <br />
+                    <br />
+                    2. {cardData[0].description.featureSecond}
+                    <br />
+                    {cardData[0].description.featureDescription2}
+                    <br />
+                    <br />
+                    3. {cardData[0].description.featureThird}
+                    <br />
+                    {cardData[0].description.featureDescription3}
                 </ClipBoard>
 
                 <ClipBoard>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore doloremque reiciendis dolorum, delectus illum iure doloribus
-                    tenetur numquam, repellendus minima temporibus eum magni accusamus. Eius eaque, debitis, maxime cumque quisquam magni recusandae
-                    explicabo minus hic deserunt vero labore mollitia aperiam ipsa molestias numquam voluptatibus voluptatem suscipit non similique.
-                    Minus, tenetur!
+                    <br />
+                    <br />
+                    {cardData[0].description.promotion}
+                    <br />
+                    <br />
                 </ClipBoard>
 
                 <Button width="min(100%, 600px)" height="120px" type="primary" styles={{ margin: "0px auto" }}>

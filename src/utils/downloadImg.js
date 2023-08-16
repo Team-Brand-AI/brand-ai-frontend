@@ -1,4 +1,5 @@
 import { toPng } from "html-to-image";
+import download from "downloadjs";
 
 export const downloadImage = (imgSrc, fileName) => {
     const img = new Image();
@@ -39,4 +40,16 @@ export const downloadHtmlAsImage = async (element, fileName) => {
     linkElement.click();
 
     document.body.removeChild(linkElement);
+};
+
+export const downloadTagAsImage = (element, fileName) => {
+    console.log(element);
+    toPng(element)
+        .then((dataurl) => {
+            console.log("toPng");
+            download(dataurl, fileName);
+        })
+        .catch((err) => {
+            console.log(err);
+        });
 };
