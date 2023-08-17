@@ -1,5 +1,6 @@
 import { useRef, useState, useEffect, useLayoutEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 import { NavBar } from "../components/NavBar";
 import { Heading } from "../components/Heading";
@@ -9,6 +10,7 @@ import { Input, DropDown } from "../components/Forms";
 import { HashTag } from "../components/HashTag";
 import { Button, ButtonGroup, ButtonPlaceHolder } from "../components/Button";
 import { LoadingIcon } from "../components/Loading";
+import { Modal } from "../components/Modal";
 
 import { faCloudArrowUp } from "@fortawesome/free-solid-svg-icons";
 
@@ -27,6 +29,8 @@ import "./NewMarketingPage.scss";
 
 export const NewMarketingPage = {
     Category: () => {
+        const navigate = useNavigate();
+        const [modal, setModal] = useState(false);
         const dispatch = useDispatch();
         const [selectedCategory, setSelectedCategory] = useState(null);
 
@@ -45,6 +49,21 @@ export const NewMarketingPage = {
         return (
             <main className="new-marketing-page__category page">
                 <NavBar.Top cur={0} max={5} />
+                <NavBar.Close onCloseClick={() => setModal((modal) => true)} />
+
+                {modal && (
+                    <Modal
+                        title="정말로 그만두시겠습니까?"
+                        subtitle="기존에 입력했던 정보는 저장되지 않습니다"
+                        btnTypeLeft="primary"
+                        btnTextLeft="계속하기"
+                        onClickLeft={() => setModal((modal) => false)}
+                        btnTypeRight="secondary"
+                        btnTextRight="그만두기"
+                        onClickRight={() => navigate("/my-marketing")}
+                    ></Modal>
+                )}
+
                 <Heading title={"카테고리를 선택해 주세요"} subtitle={["판매 하시려는 상품과 관련된 카테고리를", "선택해 주세요"]} />
 
                 <div className="page-category__grid">
@@ -70,6 +89,9 @@ export const NewMarketingPage = {
         );
     },
     SubCategory: () => {
+        const navigate = useNavigate();
+        const [modal, setModal] = useState(false);
+
         const { category } = useSelector((state) => state.newMarketing);
         const dispatch = useDispatch();
         const [selectedSubCategory, setSelectedSubCategory] = useState(null);
@@ -88,11 +110,27 @@ export const NewMarketingPage = {
         return (
             <main className="new-marketing-page__subcategory page">
                 <NavBar.Top cur={1} max={5} />
+
+                <NavBar.Close onCloseClick={() => setModal((modal) => true)} />
+
+                {modal && (
+                    <Modal
+                        title="정말로 그만두시겠습니까?"
+                        subtitle="기존에 입력했던 정보는 저장되지 않습니다"
+                        btnTypeLeft="primary"
+                        btnTextLeft="계속하기"
+                        onClickLeft={() => setModal((modal) => false)}
+                        btnTypeRight="secondary"
+                        btnTextRight="그만두기"
+                        onClickRight={() => navigate("/my-marketing")}
+                    ></Modal>
+                )}
+
                 <Heading title={"하위 카테고리를 선택해 주세요"} subtitle={["판매 하시려는 상품과 관련된 카테고리를", "선택해 주세요"]} />
 
                 <SubCategoryContext.Provider value={{ selectedItem: selectedSubCategory, setSelectedItem: setSelectedSubCategory }}>
                     <Grid.Container context={SubCategoryContext} width={"min(100%, 600px)"}>
-                        {subcategory["food"].map((element, index) => {
+                        {subcategory[category.en].map((element, index) => {
                             return <Grid.Item key={index} text={element["name_kr"]} size={"150px"}></Grid.Item>;
                         })}
                     </Grid.Container>
@@ -103,12 +141,31 @@ export const NewMarketingPage = {
         );
     },
     HashTag: () => {
+        const navigate = useNavigate();
+        const [modal, setModal] = useState(false);
+
         const dispatch = useDispatch();
         const { hashtags } = useSelector((state) => state.newMarketing);
 
         return (
             <main className="new-marketing-page__hashtag page">
                 <NavBar.Top cur={2} max={5} />
+
+                <NavBar.Close onCloseClick={() => setModal((modal) => true)} />
+
+                {modal && (
+                    <Modal
+                        title="정말로 그만두시겠습니까?"
+                        subtitle="기존에 입력했던 정보는 저장되지 않습니다"
+                        btnTypeLeft="primary"
+                        btnTextLeft="계속하기"
+                        onClickLeft={() => setModal((modal) => false)}
+                        btnTypeRight="secondary"
+                        btnTextRight="그만두기"
+                        onClickRight={() => navigate("/my-marketing")}
+                    ></Modal>
+                )}
+
                 <Heading title={"해쉬태그를 추가해 주세요"} subtitle={["판매 하시려는 상품을 가장 잘 나타내주는", "해쉬태그를 추가해주세요"]} />
 
                 <Label>해쉬태그 추가하기</Label>
@@ -137,6 +194,9 @@ export const NewMarketingPage = {
         );
     },
     BrandInfo: () => {
+        const navigate = useNavigate();
+        const [modal, setModal] = useState(false);
+
         const dispatch = useDispatch();
         const [selectedMoodOption, setSelectedMoodOption] = useState({
             index: null,
@@ -167,6 +227,22 @@ export const NewMarketingPage = {
         return (
             <div className="new-marketing-page__brandinfo page">
                 <NavBar.Top cur={3} max={5} />
+
+                <NavBar.Close onCloseClick={() => setModal((modal) => true)} />
+
+                {modal && (
+                    <Modal
+                        title="정말로 그만두시겠습니까?"
+                        subtitle="기존에 입력했던 정보는 저장되지 않습니다"
+                        btnTypeLeft="primary"
+                        btnTextLeft="계속하기"
+                        onClickLeft={() => setModal((modal) => false)}
+                        btnTypeRight="secondary"
+                        btnTextRight="그만두기"
+                        onClickRight={() => navigate("/my-marketing")}
+                    ></Modal>
+                )}
+
                 <Heading title={"상품, 브랜드 이름을 입력해주세요"} subtitle={["판매 하시려는 상품의 이름 또는", "브랜드명을 입력해주세요"]} />
 
                 <Label>브랜드 이름을 입력해주세요</Label>
@@ -207,6 +283,9 @@ export const NewMarketingPage = {
     },
 
     Image: () => {
+        const navigate = useNavigate();
+        const [modal, setModal] = useState(false);
+
         const fileInput = useRef();
         const dispatch = useDispatch();
         const { brandImg } = useSelector((state) => state.newMarketing);
@@ -234,6 +313,22 @@ export const NewMarketingPage = {
         return (
             <div className="new-marketing-page__image page">
                 <NavBar.Top cur={4} max={5} />
+
+                <NavBar.Close onCloseClick={() => setModal((modal) => true)} />
+
+                {modal && (
+                    <Modal
+                        title="정말로 그만두시겠습니까?"
+                        subtitle="기존에 입력했던 정보는 저장되지 않습니다"
+                        btnTypeLeft="primary"
+                        btnTextLeft="계속하기"
+                        onClickLeft={() => setModal((modal) => false)}
+                        btnTypeRight="secondary"
+                        btnTextRight="그만두기"
+                        onClickRight={() => navigate("/my-marketing")}
+                    ></Modal>
+                )}
+
                 <Heading title={"이미지를 업로드 해주세요"} subtitle={["판매 하시려는 상품이 잘 보이게", "사진을 업로드 해주세요"]} />
 
                 {brandImg.isUploaded === false ? (

@@ -114,47 +114,7 @@
         }
     ],
 
-    
-     "computer": [
-        {
-            "name_kr": "노트북",
-            "name_en": "laptop"
-        },
-        {
-            "name_kr": "데스크탑",
-            "name_en": "desktop"
-        },
-        {
-            "name_kr": "모니터",
-            "name_en": "monitor"
-        },
-        {
-            "name_kr": "복합기/프린터",
-            "name_en": "multifunction printer"
-        },
-        {
-            "name_kr": "키보드/마우스",
-            "name_en": "keyboard/mouse"
-        },
-        {
-            "name_kr": "주변기기",
-            "name_en": "peripheral devices"
-        },
-        {
-            "name_kr": "저장장치",
-            "name_en": "storage devices"
-        },
-        {
-            "name_kr": "소프트웨어",
-            "name_en": "software"
-        },
-        {
-            "name_kr": "부품",
-            "name_en": "components"
-        }
-    ],
-
-    "health medical device": [
+    "healthcare": [
         {
             "name_kr": "마스크",
             "name_en": "mask"
@@ -236,7 +196,7 @@
         }
     ],
 
-    "cosmetics beauty":[
+    "cosmetics beauty": [
         {
             "name_kr": "스킨케어",
             "name_en": "Skincare"
@@ -487,7 +447,7 @@
         }
     ],
 
-    "sports leisure":[
+    "sports leisure": [
         {
             "name_kr": "캠핑",
             "name_en": "Camping"
@@ -665,41 +625,6 @@
         }
     ],
 
-    "home appliances digital": [
-        {
-            "name_kr": "태블릿PC",
-            "name_en": "Tablet PC"
-        },
-        {
-            "name_kr": "음향기기",
-            "name_en": "Audio Devices"
-        },
-        {
-            "name_kr": "블루투스",
-            "name_en": "Bluetooth"
-        },
-        {
-            "name_kr": "스마트워치",
-            "name_en": "Smartwatch"
-        },
-        {
-            "name_kr": "게이밍",
-            "name_en": "Gaming"
-        },
-        {
-            "name_kr": "휴대폰",
-            "name_en": "Mobile Phone"
-        },
-        {
-            "name_kr": "카메라",
-            "name_en": "Camera"
-        },
-        {
-            "name_kr": "1인방송/촬영",
-            "name_en": "Solo Broadcasting/Recording"
-        }
-    ],
-
     "automotive tools": [
         {
             "name_kr": "블박/내비/전자기기",
@@ -811,76 +736,74 @@
         }
     ],
 
-    "furniture interior": [
+    "digital": [
         {
-            "name_kr": "소파",
-            "name_en": "Sofa"
+            "name_kr": "노트북",
+            "name_en": "laptop"
         },
         {
-            "name_kr": "침대 매트릭스",
-            "name_en": "Bed Mattress"
+            "name_kr": "데스크탑",
+            "name_en": "desktop"
         },
         {
-            "name_kr": "드레스룸 행거",
-            "name_en": "Dresser Closet"
+            "name_kr": "모니터",
+            "name_en": "monitor"
         },
         {
-            "name_kr": "거실장 테이블",
-            "name_en": "Living Room Table"
+            "name_kr": "복합기/프린터",
+            "name_en": "multifunction printer"
         },
         {
-            "name_kr": "의자",
-            "name_en": "Chair"
+            "name_kr": "키보드/마우스",
+            "name_en": "keyboard/mouse"
         },
         {
-            "name_kr": "책상 책장",
-            "name_en": "Desk Bookshelf"
+            "name_kr": "주변기기",
+            "name_en": "peripheral devices"
         },
         {
-            "name_kr": "식탁 주방가구",
-            "name_en": "Dining Table Kitchen Furniture"
+            "name_kr": "저장장치",
+            "name_en": "storage devices"
         },
         {
-            "name_kr": "선반 수납가구",
-            "name_en": "Shelf Storage Furniture"
+            "name_kr": "소프트웨어",
+            "name_en": "software"
         },
         {
-            "name_kr": "아동 주니어가구",
-            "name_en": "Children Junior Furniture"
+            "name_kr": "부품",
+            "name_en": "components"
         },
         {
-            "name_kr": "조명 스탠드",
-            "name_en": "Lighting Stand"
+            "name_kr": "태블릿PC",
+            "name_en": "Tablet PC"
         },
         {
-            "name_kr": "시공 리모델링",
-            "name_en": "Construction Remodeling"
+            "name_kr": "음향기기",
+            "name_en": "Audio Devices"
         },
         {
-            "name_kr": "셀프인테리어",
-            "name_en": "Self Interior"
+            "name_kr": "블루투스",
+            "name_en": "Bluetooth"
         },
         {
-            "name_kr": "침구",
-            "name_en": "Bedding"
+            "name_kr": "스마트워치",
+            "name_en": "Smartwatch"
         },
         {
-            "name_kr": "홈데코 수예",
-            "name_en": "Home Decor Ornaments"
+            "name_kr": "게이밍",
+            "name_en": "Gaming"
         },
         {
-            "name_kr": "카페트 러그",
-            "name_en": "Carpet Rug"
+            "name_kr": "휴대폰",
+            "name_en": "Mobile Phone"
         },
         {
-            "name_kr": "야외가구",
-            "name_en": "Outdoor Furniture"
+            "name_kr": "카메라",
+            "name_en": "Camera"
         },
         {
-            "name_kr": "커튼 블라인드",
-            "name_en": "Curtains Blinds"
+            "name_kr": "1인방송/촬영",
+            "name_en": "Solo Broadcasting/Recording"
         }
     ]
 }
-
-
