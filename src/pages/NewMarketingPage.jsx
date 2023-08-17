@@ -26,6 +26,7 @@ import { newMarketingActions } from "../store/new-marketing-slice.js";
 import { NewCardFetchThunk, NewDescriptionFetchThunk, NewLogoFetchThunk } from "../store/generated-assets-slice";
 
 import "./NewMarketingPage.scss";
+import { FetchDirectUploadURL } from "../store/image-slice";
 
 export const NewMarketingPage = {
     Category: () => {
@@ -290,20 +291,24 @@ export const NewMarketingPage = {
         const dispatch = useDispatch();
         const { brandImg } = useSelector((state) => state.newMarketing);
 
+        useEffect(() => {}, []);
+
         const onImageUpload = (event) => {
-            const file = event.target.files[0];
+            dispatch(FetchDirectUploadURL());
 
-            if (file) {
-                console.log(file);
-                const reader = new FileReader();
+            // const file = event.target.files[0];
 
-                reader.onload = (e) => {
-                    const base64String = e.target.result.slice(base64_identifier.length + 1).toString();
-                    console.log(base64String);
-                    dispatch(newMarketingActions.setBrandImage({ isUploaded: true, data: base64String }));
-                };
-                reader.readAsDataURL(file);
-            }
+            // if (file) {
+            //     console.log(file);
+            //     const reader = new FileReader();
+
+            //     reader.onload = (e) => {
+            //         const base64String = e.target.result.slice(base64_identifier.length + 1).toString();
+            //         console.log(base64String);
+            //         dispatch(newMarketingActions.setBrandImage({ isUploaded: true, data: base64String }));
+            //     };
+            //     reader.readAsDataURL(file);
+            // }
         };
 
         const onImageDelete = () => {

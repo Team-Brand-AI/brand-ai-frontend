@@ -5,6 +5,7 @@ import { newMarketingSlice } from "./new-marketing-slice";
 import { generatedAssetsSlice } from "./generated-assets-slice";
 import { authSlice } from "./auth-slice";
 import { userDataSlice } from "./user-data-slice";
+import { imageSlice } from "./image-slice";
 
 export const store = configureStore({
     reducer: {
@@ -13,5 +14,6 @@ export const store = configureStore({
         generatedAssets: generatedAssetsSlice.reducer,
         auth: authSlice.reducer,
         userData: userDataSlice.reducer,
+        image: imageSlice.reducer,
     },
 });
