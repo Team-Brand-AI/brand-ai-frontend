@@ -21,7 +21,7 @@ export const HomePage = () => {
 
             <div className="home-page-container">
                 <div className="home-page-container__text">
-                    <h1 className="home-page-container__title">Service Name</h1>
+                    <h1 className="home-page-container__title">브랜다이</h1>
                     <h3 className="home-page-container__subtitle">
                         <span>몇가지 간단한 단계를 거쳐</span>
                         <span>디지털 마케팅에 필요한 자원을</span>
