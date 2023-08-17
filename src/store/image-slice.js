@@ -1,5 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const UPLOAD_API_URL = "/dai/api/upload";
+
 export const imageSlice = createSlice({
     name: "image",
 
@@ -28,12 +30,7 @@ export const FetchDirectUploadURL = () => {
         );
 
         const request = async () => {
-            const response = await fetch(`https://api.cloudflare.com/client/v4/accounts/${process.env.REACT_APP_CLOUD_FLARE_ACCOUNT_ID}`, {
-                headers: {
-                    "Content-Type": "application/json",
-                    Authorization: `Bearer ${process.env.REACT_APP_CLOUD_FLARE_API_KEY}`,
-                },
-            });
+            const response = await fetch("/dai/api/upload");
             if (!response.ok) throw new Error("Direct Upload URL Fetch Failed");
             return response.json();
         };

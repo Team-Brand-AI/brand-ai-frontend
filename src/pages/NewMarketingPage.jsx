@@ -290,11 +290,25 @@ export const NewMarketingPage = {
         const fileInput = useRef();
         const dispatch = useDispatch();
         const { brandImg } = useSelector((state) => state.newMarketing);
+        const { directUploadURL } = useSelector((state) => state.image);
 
-        useEffect(() => {}, []);
-
-        const onImageUpload = (event) => {
+        useEffect(() => {
             dispatch(FetchDirectUploadURL());
+        }, []);
+
+        const onImageUpload = async (event) => {
+            const form = new FormData();
+
+            form.append("file", event.target.files[0]);
+
+            const url = "https://upload.imagedelivery.net/wm7bx1mdOC4kYCl9KROCIQ/3c44241d-a7d5-4e4b-402e-5b8184dfd101";
+
+            const request = await fetch(url, {
+                method: "POST",
+                body: form,
+            });
+
+            console.log(request.json());
 
             // const file = event.target.files[0];
 
