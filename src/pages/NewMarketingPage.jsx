@@ -305,7 +305,16 @@ export const NewMarketingPage = {
                 console.log("compressedFile : " + compressedFile);
 
                 imageCompression.getDataUrlFromFile(compressedFile).then((base64) => {
-                    console.log(base64);
+                    const imageType = base64.slice(11).split(";")[0];
+                    const imageData = base64.slice(base64_identifier.length + 1).toString();
+
+                    dispatch(
+                        newMarketingActions.setBrandImage({
+                            isUploaded: true,
+                            imageType: imageType,
+                            imageData: imageData,
+                        })
+                    );
                 });
             } catch (err) {
                 console.log(err);
@@ -414,7 +423,8 @@ export const NewMarketingPage = {
                         description: description.data,
                         logoUrl1: logo.url[0],
                         logoUrl2: logo.url[1],
-                        imagePath: brandImg.data,
+                        imagePath: brandImg.imageData,
+                        imageExtension: brandImg.imageType,
                     })
                 );
             }

@@ -40,7 +40,8 @@ export const newMarketingSlice = createSlice({
 
         brandImg: {
             isUploaded: false,
-            data: null,
+            imageType: null,
+            imageData: null,
         },
     },
 
