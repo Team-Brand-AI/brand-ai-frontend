@@ -60,7 +60,7 @@ export const ResultPage = () => {
 
             {isLoading && <LoadingPage></LoadingPage>}
 
-            <div className="result__color-picker"></div>
+            {/* <div className="result__color-picker"></div> */}
 
             <main className="result-page" ref={mainDom}>
                 <div className="result__logo-container">
@@ -73,7 +73,7 @@ export const ResultPage = () => {
                 </div>
 
                 <div className="result__product-img-container">
-                    <img className="product-img-item" src={"/img/img_test_1.jpg"}></img>
+                    <img className="product-img-item" src={cardData[0].imagePath}></img>
                 </div>
 
                 <div className="result__description-container">

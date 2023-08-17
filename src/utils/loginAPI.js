@@ -1,4 +1,4 @@
-export const REST_API_KEY = "296894f08c87dfa1fe0fd92868b82697";
+export const REST_API_KEY = "bd35d95b8db977e0b07b6fd668527afe";
 
 export const LOGIN_REDIRECT_URL = "http://localhost:3000/get-started/login-redirect";
 

@@ -26,6 +26,7 @@ import { newMarketingActions } from "../store/new-marketing-slice.js";
 import { NewCardFetchThunk, NewDescriptionFetchThunk, NewLogoFetchThunk } from "../store/generated-assets-slice";
 
 import "./NewMarketingPage.scss";
+import { FetchDirectUploadURL } from "../store/image-slice";
 
 export const NewMarketingPage = {
     Category: () => {
@@ -289,21 +290,27 @@ export const NewMarketingPage = {
         const fileInput = useRef();
         const dispatch = useDispatch();
         const { brandImg } = useSelector((state) => state.newMarketing);
+        const { directUploadURL } = useSelector((state) => state.image);
 
-        const onImageUpload = (event) => {
-            const file = event.target.files[0];
+        useEffect(() => {
+            dispatch(FetchDirectUploadURL());
+        }, []);
 
-            if (file) {
-                console.log(file);
-                const reader = new FileReader();
+        const onImageUpload = async (event) => {
+            const form = new FormData();
 
-                reader.onload = (e) => {
-                    const base64String = e.target.result.slice(base64_identifier.length + 1).toString();
-                    console.log(base64String);
-                    dispatch(newMarketingActions.setBrandImage({ isUploaded: true, data: base64String }));
-                };
-                reader.readAsDataURL(file);
-            }
+            form.append("file", event.target.files[0]);
+
+            const url = directUploadURL.url;
+
+            const request = await fetch(url, {
+                method: "POST",
+                body: form,
+            });
+
+            request.json().then((result) => {
+                dispatch(newMarketingActions.setBrandImage({ isUploaded: true, data: result.result.variants[0] }));
+            });
         };
 
         const onImageDelete = () => {
@@ -351,7 +358,7 @@ export const NewMarketingPage = {
                     </>
                 ) : (
                     <>
-                        <img src={base64_identifier + brandImg.data} className="img-preview"></img>
+                        <img src={brandImg.data} className="img-preview"></img>
                         <Button
                             onClick={onImageDelete}
                             type="danger"
