@@ -24,9 +24,9 @@ export const SettingsPage = () => {
     return (
         <div className="page-settings page">
             <NavBar.Bottom>
-                <NavBar.Item active icon={faClipboardList} text="내 마케팅" link="/my-marketing" />
+                <NavBar.Item icon={faClipboardList} text="내 마케팅" link="/my-marketing" />
                 <NavBar.Item icon={faCirclePlus} text="내 마케팅 추가하기" link="/new-marketing/category" />
-                <NavBar.Item icon={faGear} text="환경설정" link="/settings" />
+                <NavBar.Item active icon={faGear} text="환경설정" link="/settings" />
             </NavBar.Bottom>
 
             <Heading title="환경설정" />

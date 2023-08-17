@@ -1,0 +1,31 @@
+[
+    {
+        "colorType1": "#ed4b2b",
+        "colorType2": "#ec8484",
+        "colorType3": "#ffe2dc"
+    },
+
+    {
+        "colorType1": "#dfa67b",
+        "colorType2": "#f4b183",
+        "colorType3": "#fff2cc"
+    },
+
+    {
+        "colorType1": "#BEADFA",
+        "colorType2": "#BEADFA",
+        "colorType3": "#ede4ff"
+    },
+
+    {
+        "colorType1": "#7286d3",
+        "colorType2": "#8ea7e9",
+        "colorType3": "#e5e0ff"
+    },
+
+    {
+        "colorType1": "#a4bc92",
+        "colorType2": "#b3c99c",
+        "colorType3": "#ddffbb"
+    }
+]
