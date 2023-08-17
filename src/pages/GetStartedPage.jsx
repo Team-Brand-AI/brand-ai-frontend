@@ -1,5 +1,5 @@
-import { useContext, useEffect, useLayoutEffect, useRef, useState } from "react";
-import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 

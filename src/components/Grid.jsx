@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext, useLayoutEffect } from "react";
+import { useEffect, useContext, useLayoutEffect } from "react";
 import "./Grid.scss";
 
 export const Grid = {

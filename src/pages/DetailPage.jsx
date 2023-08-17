@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClipboardList, faCirclePlus, faGear, faCircleArrowRight } from "@fortawesome/free-solid-svg-icons";
 
-import { useEffect, useLayoutEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 import { TopNav } from "../components/Assets";
@@ -11,12 +11,7 @@ import { NavBar } from "../components/NavBar";
 import { ClipBoard } from "../components/ClipBoard";
 import { InnerLabel } from "../components/Label";
 
-import base64 from "@assets/base64.json";
 import { useDispatch, useSelector } from "react-redux";
-import { downloadHtmlAsImage, downloadImage, downloadTagAsImage } from "../utils/downloadImg";
-
-import download from "downloadjs";
-import { toPng } from "html-to-image";
 
 export const DetailPage = () => {
     const navigate = useNavigate();
@@ -73,7 +68,7 @@ export const DetailPage = () => {
 
                 <Image imgSrc={cardData && cardData[0].imagePath}></Image>
 
-                <Button width="min(100%, 600px)" type="primary" styles={{ margin: "0px auto" }}>
+                <Button width="min(100%, 600px)" type="primary" styles={{ margin: "0px auto" }} onClick={() => window.open(cardData[0].imagePath)}>
                     배경화면 파일 다운로드
                 </Button>
 

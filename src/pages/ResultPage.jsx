@@ -1,8 +1,6 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { faClipboardList, faCirclePlus, faGear, faCircleArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 import { TopNav } from "../components/Assets";
 import { Button } from "../components/Button";
@@ -12,7 +10,6 @@ import domtoimage from "dom-to-image";
 
 import { LoadingPage } from "../components/Loading";
 
-import base64 from "@assets/base64.json";
 import colorpicker from "@assets/colorpicker.json";
 
 import "./ResultPage.scss";

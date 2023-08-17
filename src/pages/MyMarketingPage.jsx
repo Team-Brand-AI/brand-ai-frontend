@@ -1,6 +1,6 @@
 import { faClipboardList, faCirclePlus, faGear } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
-import { useEffect, useLayoutEffect } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { Card } from "../components/Card";
@@ -8,8 +8,7 @@ import { NavBar } from "../components/NavBar";
 import { ButtonPlaceHolder } from "../components/Button";
 import { UserDataFetchThunk } from "../store/user-data-slice";
 
-import { base64_identifier } from "../utils/base64";
-import { LoadingComponent, LoadingIcon } from "../components/Loading";
+import { LoadingComponent } from "../components/Loading";
 
 export const MyMarketingPage = () => {
     const navigate = useNavigate();

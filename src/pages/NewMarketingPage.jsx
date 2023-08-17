@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect, useLayoutEffect } from "react";
+import { useRef, useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
@@ -20,9 +20,8 @@ import subcategory from "@assets/subcategory.json";
 import { CategoryContext, SubCategoryContext } from "../context/CategoryContext";
 import { MoodContext, ColorContext } from "../context/OptionContext";
 
-import { base64_identifier } from "../utils/base64";
-
 import { newMarketingActions } from "../store/new-marketing-slice.js";
+import { UserDataFetchThunk } from "../store/user-data-slice";
 import { NewCardFetchThunk, NewDescriptionFetchThunk, NewLogoFetchThunk } from "../store/generated-assets-slice";
 
 import "./NewMarketingPage.scss";
@@ -426,6 +425,8 @@ export const NewMarketingPage = {
                 );
             }
             if (logo.state === "success" && description.state === "success" && token != null) {
+                dispatch(newMarketingActions.initInputs());
+                dispatch(UserDataFetchThunk(token.data));
                 navigate("/my-marketing");
             }
         }, [logo.state, description.state, token.data]);
@@ -433,9 +434,13 @@ export const NewMarketingPage = {
         return (
             <div className="new-marketing-page__loading page">
                 <LoadingIcon></LoadingIcon>
-                <h3>{loadingText}</h3>
-                <h3>이 작업이 진행되는동안</h3>
-                <h3>앱을 종료하지 마세요</h3>
+                <h3>
+                    {loadingText}
+                    <br />
+                    <span>이 작업이 진행되는동안</span>
+                    <br />
+                    <span>앱을 종료하지 마세요</span>
+                </h3>
             </div>
         );
     },

@@ -11,7 +11,6 @@ import {
     faGear,
 } from "@fortawesome/free-solid-svg-icons";
 
-import { Selector } from "../components/Selector";
 import { Heading } from "../components/Heading";
 import { Menu } from "../components/Menu";
 import { Label } from "../components/Label";
