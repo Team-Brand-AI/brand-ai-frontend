@@ -7,7 +7,8 @@ import { GetStartedPage } from "./pages/GetStartedPage";
 import { MyMarketingPage } from "./pages/MyMarketingPage";
 import { DetailPage } from "./pages/DetailPage";
 import { SettingsPage } from "./pages/SettingsPage";
-import { ResultPage }from "./pages/ResultPage";
+import { ResultPage } from "./pages/ResultPage";
+import { PageNotFound } from "./pages/404";
 
 import { Provider } from "react-redux";
 import { store } from "./store/store";
@@ -38,6 +39,8 @@ function App() {
                 <Route path="/result/:id" element={<ResultPage />}></Route>
 
                 <Route path="/settings" element={<SettingsPage />}></Route>
+
+                <Route path="*" element={<PageNotFound />}></Route>
             </Routes>
         </Provider>
     );
