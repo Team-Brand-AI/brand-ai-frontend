@@ -10,9 +10,6 @@ export const HashTag = {
         return (
             <div className="hash-tag-item">
                 <div className="hash-tag-item__text">{children}</div>
-                <div className="hash-tag-item__btn" onClick={onRemoveBtnClick}>
-                    <FontAwesomeIcon icon={faMinus} />
-                </div>
             </div>
         );
     },

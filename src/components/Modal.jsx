@@ -11,12 +11,16 @@ export const Modal = ({ btnTypeLeft, btnTextLeft, btnTypeRight, btnTextRight, on
                         <h2>{title}</h2>
                         <h4>{subtitle}</h4>
                         <div className="modal-item__btn-container">
-                            <Button type={btnTypeLeft} onClick={() => onClickLeft()}>
-                                {btnTextLeft}
-                            </Button>
-                            <Button type={btnTypeRight} onClick={() => onClickRight()}>
-                                {btnTextRight}
-                            </Button>
+                            {btnTypeLeft && (
+                                <Button type={btnTypeLeft} onClick={() => onClickLeft()}>
+                                    {btnTextLeft}
+                                </Button>
+                            )}
+                            {btnTypeRight && (
+                                <Button type={btnTypeRight} onClick={() => onClickRight()}>
+                                    {btnTextRight}
+                                </Button>
+                            )}
                         </div>
                     </div>
                 </div>

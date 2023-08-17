@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 import { Button } from "../components/Button";
+import { Modal } from "../components/Modal";
 
 import "./404.scss";
 
@@ -32,6 +33,22 @@ export const PageNotFound = () => {
                     </Button>
                 )}
             </div>
+        </div>
+    );
+};
+
+export const UnAuthorizedPage = () => {
+    const navigate = useNavigate(0);
+
+    return (
+        <div className="unauthorized-page">
+            <Modal
+                title="세션이 만료되었습니다"
+                subtitle="다시 로그인 해주세요"
+                btnTypeLeft="primary"
+                btnTextLeft="홈 화면으로"
+                onClickLeft={() => navigate("/")}
+            ></Modal>
         </div>
     );
 };

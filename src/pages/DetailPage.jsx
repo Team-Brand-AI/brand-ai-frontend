@@ -23,17 +23,25 @@ export const DetailPage = () => {
     const dispatch = useDispatch();
 
     const [logoRef1, logoRef2] = [useRef(), useRef()];
+    const [cardData, setCardData] = useState(null);
 
     const { id } = useParams();
     const { cardList } = useSelector((state) => state.userData);
-    const cardData = cardList.data.filter((card) => card.id == id);
+
+    useEffect(() => {
+        try {
+            setCardData(cardList.data.filter((card) => card.id == id));
+        } catch (err) {
+            navigate("/unauthorized");
+        }
+    }, []);
 
     return (
         <>
             <TopNav
                 onPrevBtnClick={() => navigate("/my-marketing")}
-                imgSrc={cardData[0].imagePath}
-                title={cardData[0].description.productName}
+                imgSrc={cardData && cardData[0].imagePath}
+                title={cardData && cardData[0].description.productName}
             ></TopNav>
 
             <div className="detail-page page">
@@ -45,22 +53,14 @@ export const DetailPage = () => {
 
                 <InnerLabel>생성된 로고</InnerLabel>
                 <Logo.Container itemSize={"150px"} containerHeight={"180px"}>
-                    <Logo.Item id="logo-1" ref={logoRef1} imgSrc={cardData[0].logoUrl1}></Logo.Item>
-                    <Logo.Item id="logo-2" ref={logoRef2} imgSrc={cardData[0].logoUrl2}></Logo.Item>
+                    <Logo.Item id="logo-1" ref={logoRef1} imgSrc={cardData && cardData[0].logoUrl1}></Logo.Item>
+                    <Logo.Item id="logo-2" ref={logoRef2} imgSrc={cardData && cardData[0].logoUrl2}></Logo.Item>
                 </Logo.Container>
+
                 <Button
                     onClick={() => {
-                        // downloadTagAsImage(document.querySelector(".logo-download-1"), "logo1.png");
-                        // downloadTagAsImage(document.querySelector(".logo-download-2"), "logo2.png");
-                        // toPng(document.querySelector("#logo-1"))
-                        //     .then((dataurl) => {
-                        //         console.log("toPng");
-                        //         download(dataurl, "logo1.png");
-                        //     })
-                        //     .catch((err) => {
-                        //         console.log(err);
-                        //     });
-                        // 다운로드 안됌!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                        window.open(cardData && cardData[0].logoUrl1);
+                        window.open(cardData && cardData[0].logoUrl2);
                     }}
                     width="min(100%, 600px)"
                     type="primary"
@@ -71,7 +71,7 @@ export const DetailPage = () => {
 
                 <InnerLabel>생성된 배경화면</InnerLabel>
 
-                <Image imgSrc={cardData[0].imagePath}></Image>
+                <Image imgSrc={cardData && cardData[0].imagePath}></Image>
 
                 <Button width="min(100%, 600px)" type="primary" styles={{ margin: "0px auto" }}>
                     배경화면 파일 다운로드
@@ -79,31 +79,31 @@ export const DetailPage = () => {
 
                 <InnerLabel>생성된 제품 설명</InnerLabel>
                 <ClipBoard>
-                    {cardData[0].description.productName}
+                    {cardData && cardData[0].description.productName}
                     <br />
                     <br />
-                    {cardData[0].description.introduction}
+                    {cardData && cardData[0].description.introduction}
                     <br />
                     <br />
-                    1. {cardData[0].description.featureFirst}
+                    1. {cardData && cardData[0].description.featureFirst}
                     <br />
-                    {cardData[0].description.featureDescription1}
-                    <br />
-                    <br />
-                    2. {cardData[0].description.featureSecond}
-                    <br />
-                    {cardData[0].description.featureDescription2}
+                    {cardData && cardData[0].description.featureDescription1}
                     <br />
                     <br />
-                    3. {cardData[0].description.featureThird}
+                    2. {cardData && cardData[0].description.featureSecond}
                     <br />
-                    {cardData[0].description.featureDescription3}
+                    {cardData && cardData[0].description.featureDescription2}
+                    <br />
+                    <br />
+                    3. {cardData && cardData[0].description.featureThird}
+                    <br />
+                    {cardData && cardData[0].description.featureDescription3}
                 </ClipBoard>
 
                 <ClipBoard>
                     <br />
                     <br />
-                    {cardData[0].description.promotion}
+                    {cardData && cardData[0].description.promotion}
                     <br />
                     <br />
                 </ClipBoard>
