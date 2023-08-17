@@ -1,6 +1,7 @@
 import { useRef, useState, useEffect, useLayoutEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import imageCompression from "browser-image-compression";
 
 import { NavBar } from "../components/NavBar";
 import { Heading } from "../components/Heading";
@@ -290,19 +291,24 @@ export const NewMarketingPage = {
         const dispatch = useDispatch();
         const { brandImg } = useSelector((state) => state.newMarketing);
 
-        const onImageUpload = (event) => {
+        const onImageUpload = async (event) => {
             const file = event.target.files[0];
 
-            if (file) {
-                console.log(file);
-                const reader = new FileReader();
+            const options = {
+                maxSizeMB: 0.2,
+                maxWidthOrHeight: 1920,
+                useWebWorker: true,
+            };
 
-                reader.onload = (e) => {
-                    const base64String = e.target.result.slice(base64_identifier.length + 1).toString();
-                    console.log(base64String);
-                    dispatch(newMarketingActions.setBrandImage({ isUploaded: true, data: base64String }));
-                };
-                reader.readAsDataURL(file);
+            try {
+                const compressedFile = await imageCompression(file, options);
+                console.log("compressedFile : " + compressedFile);
+
+                imageCompression.getDataUrlFromFile(compressedFile).then((base64) => {
+                    console.log(base64);
+                });
+            } catch (err) {
+                console.log(err);
             }
         };
 
