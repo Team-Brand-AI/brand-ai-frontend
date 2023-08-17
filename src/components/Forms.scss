@@ -111,5 +111,7 @@ $dropdown-item-border: 2px solid $color-gray-200;
     }
     &:hover {
         cursor: pointer;
+
+        background-color: $color-gray-300;
     }
 }

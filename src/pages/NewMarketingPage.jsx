@@ -70,17 +70,18 @@ export const NewMarketingPage = {
                 <div className="page-category__grid">
                     <CategoryContext.Provider value={{ selectedItem: selectedCategory, setSelectedItem: setSelectedCategory }}>
                         <Grid.Container context={CategoryContext} width={"min(100%, 600px)"}>
-                            {category.map((element, index) => {
-                                return (
-                                    <Grid.Item
-                                        key={index}
-                                        icon={process.env.PUBLIC_URL + `/icons/${element["imgSrc"]}.png`}
-                                        text={element["name_kr"]}
-                                        size={"150px"}
-                                        onRemoveBtnClick={""}
-                                    ></Grid.Item>
-                                );
-                            })}
+                            {category &&
+                                category.map((element, index) => {
+                                    return (
+                                        <Grid.Item
+                                            key={index}
+                                            icon={process.env.PUBLIC_URL + `/icons/${element["imgSrc"]}.png`}
+                                            text={element["name_kr"]}
+                                            size={"150px"}
+                                            onRemoveBtnClick={""}
+                                        ></Grid.Item>
+                                    );
+                                })}
                         </Grid.Container>
                     </CategoryContext.Provider>
                 </div>
@@ -131,9 +132,10 @@ export const NewMarketingPage = {
 
                 <SubCategoryContext.Provider value={{ selectedItem: selectedSubCategory, setSelectedItem: setSelectedSubCategory }}>
                     <Grid.Container context={SubCategoryContext} width={"min(100%, 600px)"}>
-                        {subcategory[category.en].map((element, index) => {
-                            return <Grid.Item key={index} text={element["name_kr"]} size={"150px"}></Grid.Item>;
-                        })}
+                        {subcategory[category.en] &&
+                            subcategory[category.en].map((element, index) => {
+                                return <Grid.Item key={index} text={element["name_kr"]} size={"150px"}></Grid.Item>;
+                            })}
                     </Grid.Container>
                 </SubCategoryContext.Provider>
 
@@ -298,11 +300,9 @@ export const NewMarketingPage = {
 
         const onImageUpload = async (event) => {
             const form = new FormData();
-
             form.append("file", event.target.files[0]);
 
             const url = directUploadURL.url;
-
             const request = await fetch(url, {
                 method: "POST",
                 body: form,
@@ -315,6 +315,7 @@ export const NewMarketingPage = {
 
         const onImageDelete = () => {
             dispatch(newMarketingActions.setBrandImage({ isUploaded: false, data: null }));
+            dispatch(FetchDirectUploadURL());
         };
 
         return (
@@ -376,6 +377,7 @@ export const NewMarketingPage = {
     },
 
     Loading: () => {
+        const navigate = useNavigate();
         const dispatch = useDispatch();
         const { brand, category, subcategory, hashtags, options, brandImg } = useSelector((state) => state.newMarketing);
         const { logo, description } = useSelector((state) => state.generatedAssets);
@@ -399,7 +401,7 @@ export const NewMarketingPage = {
             };
             console.log(data);
 
-            setLoadingText((loadingText) => "브랜드 로고 및 설명 생성중");
+            setLoadingText((loadingText) => "브랜드 로고 생성중...");
             // 로고 생성
             dispatch(NewLogoFetchThunk(data));
             // 설명 생성
@@ -408,7 +410,11 @@ export const NewMarketingPage = {
 
         useEffect(() => {
             // 카드 생성
-            if (logo.state === "success" && description.state === "success" && token != null) {
+            if (logo.state === "success") {
+                setLoadingText((loadingText) => "브랜드 설명 생성중...");
+            }
+
+            if (logo.state === "success" && description.state == "success") {
                 setLoadingText((loadingText) => "생성한 데이터 저장중");
                 dispatch(
                     NewCardFetchThunk(token.data, {
@@ -419,12 +425,17 @@ export const NewMarketingPage = {
                     })
                 );
             }
+            if (logo.state === "success" && description.state === "success" && token != null) {
+                navigate("/my-marketing");
+            }
         }, [logo.state, description.state, token.data]);
 
         return (
             <div className="new-marketing-page__loading page">
                 <LoadingIcon></LoadingIcon>
                 <h3>{loadingText}</h3>
+                <h3>이 작업이 진행되는동안</h3>
+                <h3>앱을 종료하지 마세요</h3>
             </div>
         );
     },

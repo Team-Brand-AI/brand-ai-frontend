@@ -1,5 +1,12 @@
 @import "@styles/utils.scss";
 
+.err-page {
+    width: 100vw;
+    height: 100vh;
+
+    background-color: white;
+}
+
 .page-not-found {
     @include place-center;
     width: 100vw;

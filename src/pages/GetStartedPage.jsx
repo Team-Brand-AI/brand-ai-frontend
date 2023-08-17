@@ -131,20 +131,22 @@ export const GetStartedPage = {
     Login: () => {
         return (
             <main className="page-get-started__login_back page">
-                <Heading
-                    title={"Marketisy를 사용하기 위해 로그인해주세요!"}
-                    subtitle={["로그인 해두면 카카오톡으로 내 상품을 빠르게 공유할 수 있어요."]}
-                />
-                <div className="login-page-container">
-                    <div className="login-page-container__btn">
-                        <Button
-                            type="primary"
-                            onClick={() => {
-                                window.location.href = KAKAO_AUTH_URL;
-                            }}
-                        >
-                            카카오톡 로그인하기
-                        </Button>
+                <div className="page-get-started__login-container">
+                    <Heading
+                        title={"브랜다이를 사용하기 위해 로그인해주세요!"}
+                        subtitle={["로그인 해두면 카카오톡으로 내 상품을 빠르게 공유할 수 있어요."]}
+                    />
+                    <div className="login-page-container">
+                        <div className="login-page-container__btn">
+                            <Button
+                                styles={{ backgroundColor: "#ffe90a" }}
+                                onClick={() => {
+                                    window.location.href = KAKAO_AUTH_URL;
+                                }}
+                            >
+                                카카오톡 로그인하기
+                            </Button>
+                        </div>
                     </div>
                 </div>
             </main>

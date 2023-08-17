@@ -14,6 +14,7 @@ export const newMarketingSlice = createSlice({
         },
 
         subcategory: {
+            index: null,
             kr: null,
             en: null,
         },
@@ -52,6 +53,7 @@ export const newMarketingSlice = createSlice({
         },
 
         setSubCategory: (state, action) => {
+            state.subcategory.index = action.payload.index;
             state.subcategory.kr = action.payload.kr;
             state.subcategory.en = action.payload.en;
         },
@@ -98,6 +100,7 @@ export const newMarketingSlice = createSlice({
             };
 
             state.subcategory = {
+                index: null,
                 kr: null,
                 en: null,
             };
@@ -122,7 +125,10 @@ export const newMarketingSlice = createSlice({
                 },
             };
 
-            state.brandImg = null;
+            state.brandImg = {
+                isUploaded: false,
+                data: null,
+            };
         },
     },
 });
