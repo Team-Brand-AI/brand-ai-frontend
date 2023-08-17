@@ -45,7 +45,7 @@ export const MyMarketingPage = () => {
                             <Card
                                 key={index}
                                 title={element.description.productName}
-                                imgSrc={base64_identifier + element.imagePath}
+                                imgSrc={element.imagePath}
                                 onClick={() => navigate(`/my-marketing/${element.id}`)}
                             ></Card>
                         );

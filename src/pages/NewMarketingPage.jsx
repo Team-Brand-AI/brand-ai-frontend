@@ -301,28 +301,16 @@ export const NewMarketingPage = {
 
             form.append("file", event.target.files[0]);
 
-            const url = "https://upload.imagedelivery.net/wm7bx1mdOC4kYCl9KROCIQ/3c44241d-a7d5-4e4b-402e-5b8184dfd101";
+            const url = directUploadURL.url;
 
             const request = await fetch(url, {
                 method: "POST",
                 body: form,
             });
 
-            console.log(request.json());
-
-            // const file = event.target.files[0];
-
-            // if (file) {
-            //     console.log(file);
-            //     const reader = new FileReader();
-
-            //     reader.onload = (e) => {
-            //         const base64String = e.target.result.slice(base64_identifier.length + 1).toString();
-            //         console.log(base64String);
-            //         dispatch(newMarketingActions.setBrandImage({ isUploaded: true, data: base64String }));
-            //     };
-            //     reader.readAsDataURL(file);
-            // }
+            request.json().then((result) => {
+                dispatch(newMarketingActions.setBrandImage({ isUploaded: true, data: result.result.variants[0] }));
+            });
         };
 
         const onImageDelete = () => {
@@ -370,7 +358,7 @@ export const NewMarketingPage = {
                     </>
                 ) : (
                     <>
-                        <img src={base64_identifier + brandImg.data} className="img-preview"></img>
+                        <img src={brandImg.data} className="img-preview"></img>
                         <Button
                             onClick={onImageDelete}
                             type="danger"

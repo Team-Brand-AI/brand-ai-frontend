@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const UPLOAD_API_URL = "/dai/api/upload";
+const UPLOAD_API_URL = "http://localhost:8081/dai/image/upload";
 
 export const imageSlice = createSlice({
     name: "image",
@@ -8,14 +8,16 @@ export const imageSlice = createSlice({
     initialState: {
         directUploadURL: {
             status: null,
-            data: null,
+            id: null,
+            url: null,
         },
     },
 
     reducers: {
         setDirectUploadURL: (state, action) => {
             state.directUploadURL.status = action.payload.status;
-            state.directUploadURL.data = action.payload.data;
+            state.directUploadURL.id = action.payload.id;
+            state.directUploadURL.url = action.payload.url;
         },
     },
 });
@@ -30,7 +32,7 @@ export const FetchDirectUploadURL = () => {
         );
 
         const request = async () => {
-            const response = await fetch("/dai/api/upload");
+            const response = await fetch(UPLOAD_API_URL);
             if (!response.ok) throw new Error("Direct Upload URL Fetch Failed");
             return response.json();
         };
@@ -41,7 +43,8 @@ export const FetchDirectUploadURL = () => {
             dispatch(
                 imageActions.setDirectUploadURL({
                     status: "success",
-                    data: data,
+                    id: data.id,
+                    url: data.url,
                 })
             );
         } catch (err) {

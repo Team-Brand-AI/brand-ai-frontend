@@ -27,13 +27,12 @@ export const DetailPage = () => {
     const { id } = useParams();
     const { cardList } = useSelector((state) => state.userData);
     const cardData = cardList.data.filter((card) => card.id == id);
-    // const [cardData, setCardData] = useState(null);
 
     return (
         <>
             <TopNav
                 onPrevBtnClick={() => navigate("/my-marketing")}
-                imgSrc={"/img/img_test_1.jpg"}
+                imgSrc={cardData[0].imagePath}
                 title={cardData[0].description.productName}
             ></TopNav>
 
@@ -72,7 +71,7 @@ export const DetailPage = () => {
 
                 <InnerLabel>생성된 배경화면</InnerLabel>
 
-                <Image imgSrc={"/img/img_test_1.jpg"}></Image>
+                <Image imgSrc={cardData[0].imagePath}></Image>
 
                 <Button width="min(100%, 600px)" type="primary" styles={{ margin: "0px auto" }}>
                     배경화면 파일 다운로드
