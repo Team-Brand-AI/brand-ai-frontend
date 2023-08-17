@@ -70,17 +70,18 @@ export const NewMarketingPage = {
                 <div className="page-category__grid">
                     <CategoryContext.Provider value={{ selectedItem: selectedCategory, setSelectedItem: setSelectedCategory }}>
                         <Grid.Container context={CategoryContext} width={"min(100%, 600px)"}>
-                            {category.map((element, index) => {
-                                return (
-                                    <Grid.Item
-                                        key={index}
-                                        icon={process.env.PUBLIC_URL + `/icons/${element["imgSrc"]}.png`}
-                                        text={element["name_kr"]}
-                                        size={"150px"}
-                                        onRemoveBtnClick={""}
-                                    ></Grid.Item>
-                                );
-                            })}
+                            {category &&
+                                category.map((element, index) => {
+                                    return (
+                                        <Grid.Item
+                                            key={index}
+                                            icon={process.env.PUBLIC_URL + `/icons/${element["imgSrc"]}.png`}
+                                            text={element["name_kr"]}
+                                            size={"150px"}
+                                            onRemoveBtnClick={""}
+                                        ></Grid.Item>
+                                    );
+                                })}
                         </Grid.Container>
                     </CategoryContext.Provider>
                 </div>
@@ -131,9 +132,10 @@ export const NewMarketingPage = {
 
                 <SubCategoryContext.Provider value={{ selectedItem: selectedSubCategory, setSelectedItem: setSelectedSubCategory }}>
                     <Grid.Container context={SubCategoryContext} width={"min(100%, 600px)"}>
-                        {subcategory[category.en].map((element, index) => {
-                            return <Grid.Item key={index} text={element["name_kr"]} size={"150px"}></Grid.Item>;
-                        })}
+                        {subcategory[category.en] &&
+                            subcategory[category.en].map((element, index) => {
+                                return <Grid.Item key={index} text={element["name_kr"]} size={"150px"}></Grid.Item>;
+                            })}
                     </Grid.Container>
                 </SubCategoryContext.Provider>
 

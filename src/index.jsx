@@ -6,15 +6,20 @@ import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 
 import { BrowserRouter } from "react-router-dom";
 
+import { Provider } from "react-redux";
+import { store } from "./store/store";
+
 import "./styles/animation.scss";
 import "./styles/normalize.scss";
 import "./styles/globals.scss";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-    <BrowserRouter>
-        <App />
-    </BrowserRouter>
+    <Provider store={store}>
+        <BrowserRouter>
+            <App />
+        </BrowserRouter>
+    </Provider>
 );
 
 // If you want your app to work offline and load faster, you can change
