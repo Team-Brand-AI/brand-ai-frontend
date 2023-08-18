@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const LOGIN_REDIRECT_API_URL = "/dai/auth/kakao?code=";
+const LOGIN_REDIRECT_API_URL = "http://3.38.234.172:8080/dai/auth/kakao?code=";
 
 export const authSlice = createSlice({
     name: "auth",
@@ -24,6 +24,7 @@ export const authSlice = createSlice({
         },
     },
 });
+export const authActions = authSlice.actions;
 
 export const RedirectAuthThunk = (code) => {
     return async (dispatch) => {
@@ -42,4 +43,3 @@ export const RedirectAuthThunk = (code) => {
     };
 };
 
-export const authActions = authSlice.actions;

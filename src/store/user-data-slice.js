@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const CARD_DATA_API_URL = "/dai/auth/searchCard";
+const CARD_DATA_API_URL = "http://3.38.234.172:8080/dai/auth/searchCard";
 
 export const userDataSlice = createSlice({
     name: "user",

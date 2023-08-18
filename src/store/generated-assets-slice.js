@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const NEW_LOGO_API_URL = "/dai/api/logo";
-const NEW_DESCRIPTION_API_URL = "/dai/api/description";
-const NEW_CARD_API_URL = "/dai/auth/card";
+const NEW_LOGO_API_URL = "http://3.38.234.172:8080/dai/api/logo";
+const NEW_DESCRIPTION_API_URL = "http://3.38.234.172:8080/dai/api/description";
+const NEW_CARD_API_URL = "http://3.38.234.172:8080/dai/auth/card";
 
 export const generatedAssetsSlice = createSlice({
     name: "generated-assets",

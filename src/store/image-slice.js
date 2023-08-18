@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const UPLOAD_API_URL = "http://localhost/dai/image/upload";
+const UPLOAD_API_URL = "/dai/image/upload";
 
 export const imageSlice = createSlice({
     name: "image",
