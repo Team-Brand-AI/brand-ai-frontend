@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 import { NavBar } from "../components/NavBar";
 import { Heading } from "../components/Heading";
@@ -68,7 +68,7 @@ export const NewMarketingPage = {
 
                 <div className="page-category__grid">
                     <CategoryContext.Provider value={{ selectedItem: selectedCategory, setSelectedItem: setSelectedCategory }}>
-                        <Grid.Container context={CategoryContext} width={"min(100%, 600px)"}>
+                        <Grid.Container context={CategoryContext} width={"min(100%, 1200px)"}>
                             {category &&
                                 category.map((element, index) => {
                                     return (
@@ -85,7 +85,11 @@ export const NewMarketingPage = {
                     </CategoryContext.Provider>
                 </div>
 
-                <ButtonGroup prevPath={"/"} nextPath={"/new-marketing/subcategory"}></ButtonGroup>
+                <ButtonGroup
+                    styles={{ width: "min(100%, 600px)", margin: "0px auto" }}
+                    prevPath={"/"}
+                    nextPath={"/new-marketing/subcategory"}
+                ></ButtonGroup>
             </main>
         );
     },
@@ -381,6 +385,7 @@ export const NewMarketingPage = {
         const { brand, category, subcategory, hashtags, options, brandImg } = useSelector((state) => state.newMarketing);
         const { logo, description } = useSelector((state) => state.generatedAssets);
         const { token } = useSelector((state) => state.auth);
+        const { cardList } = useSelector((state) => state.userData);
 
         const [loadingText, setLoadingText] = useState("로딩중 입니다");
 
@@ -427,9 +432,14 @@ export const NewMarketingPage = {
             if (logo.state === "success" && description.state === "success" && token != null) {
                 dispatch(newMarketingActions.initInputs());
                 dispatch(UserDataFetchThunk(token.data));
-                navigate("/my-marketing");
             }
         }, [logo.state, description.state, token.data]);
+
+        useEffect(() => {
+            if (cardList.status === "success") {
+                navigate("/my-marketing");
+            }
+        }, [cardList.status]);
 
         return (
             <div className="new-marketing-page__loading page">
@@ -440,6 +450,11 @@ export const NewMarketingPage = {
                     <span>이 작업이 진행되는동안</span>
                     <br />
                     <span>앱을 종료하지 마세요</span>
+                    <br />
+                    <br />
+                    <span>이 작업은 네트워크 환경에 따라</span>
+                    <br />
+                    <span>최대 2분까지 소요 될 수 있습니다</span>
                 </h3>
             </div>
         );
