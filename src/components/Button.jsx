@@ -20,10 +20,10 @@ export const Button = ({ styles, width, height, type, ref, className, onClick, c
     );
 };
 
-export const ButtonGroup = ({ prevPath, nextPath, onPrevClick, onNextClick }) => {
+export const ButtonGroup = ({ styles, prevPath, nextPath, onPrevClick, onNextClick }) => {
     const navigate = useNavigate();
     return (
-        <div className="btn-group-container">
+        <div className="btn-group-container" style={styles}>
             <Button
                 type="secondary"
                 width="50%"

@@ -21,6 +21,7 @@ function App() {
         console.log(location.pathname);
         if (token.data == null) {
             if (location.pathname.startsWith("/new-marketing")) navigate("/wrongaccess");
+            if (location.pathname.startsWith("/my-marketing")) navigate("/wrongaccess");
         }
     }, [location.pathname]);
 
