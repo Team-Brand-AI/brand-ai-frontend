@@ -1,31 +1,20 @@
-# 📌 Routing
+## BrandAI
 
-### /get-started/terms-of-use
-개인정보 수집 동의 페이지
+### 사용 기술
 
-### /get-started/personal-info
-성별 및 나이 수집 페이지
+![js](https://shields.io/badge/JavaScript-black?logo=javascript&style=flat&color=FB9A0B)
+![react-js](https://shields.io/badge/ReactJS-black?logo=react&style=flat&color=0086CA)
+![redux-toolkit](https://shields.io/badge/ReduxToolkit-black?logo=redux&style=flat&color=7648BA)
+![SCSS](https://shields.io/badge/SCSS-black?logo=sass&style=flat&color=A9225C)
+![PWA](https://shields.io/badge/PWA-black?logo=pwa&style=flat&color=5A0FC8)
 
-### /my-marketing
-내 마케팅 브랜드 리스트 페이지
+### 서비스 소개
 
-### /my-marketing/:id
-마케팅 상세정보 페이지
-
-### /new-marketing/category
-새 마케팅 생성 초기화면. 카테고리 선택 페이지
-
-### /new-marketing/subcategory
-새 마케팅 생성. 하위 카테고리 선택 페이지
-
-### /new-marketing/hashtag
-새 마케팅 생성. 해시태그 추가 페이지
-
-### /new-marketing/brandinfo
-새 마케팅 생성. 브랜드명, 브랜드 설명, 옵션 선택 페이지
-
-### /new-marketing/image
-새 마케팅 생성. 이미지 업로드 페이지
-
-### /settings
-환경설정 페이지
+<img src="./docs/brand-ai-ir-1.jpg"/>
+<img src="./docs/brand-ai-ir-2.jpg"/>
+<img src="./docs/brand-ai-ir-3.jpg"/>
+<img src="./docs/brand-ai-ir-4.jpg"/>
+<img src="./docs/brand-ai-ir-5.jpg"/>
+<img src="./docs/brand-ai-ir-6.jpg"/>
+<img src="./docs/brand-ai-ir-7.jpg"/>
+<img src="./docs/brand-ai-ir-8.jpg"/>
